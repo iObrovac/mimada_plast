@@ -1,0 +1,142 @@
+.kontaktContainer {
+  background: radial-gradient(
+      47.12% 47.12% at 5% 30%,
+      rgba(0, 140, 255, 0.3) 0%,
+      rgba(0, 140, 255, 0) 100%
+    ),
+    radial-gradient(
+      47.12% 47.12% at 95% 30%,
+      rgba(0, 84, 153, 0.3) 0%,
+      rgba(0, 84, 153, 0) 100%
+    ),
+    #001c33;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.kontaktWindow {
+  display: block;
+  max-height: 83.2rem;
+  max-width: 81rem;
+  margin: -4rem auto 0 auto;
+
+  mix-blend-mode: color-dodge;
+  opacity: 0.9;
+  z-index: 5;
+}
+
+.contactForm {
+  max-width: 120rem;
+  max-height: 80rem;
+  background: #f2f2f2;
+  border: 10px solid rgba(21, 21, 74, 0.3);
+  border-radius: 50px;
+  margin: -65rem auto 0 auto;
+  position: relative;
+  padding: 8rem;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.contactInfo {
+  div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    div {
+      margin-left: 3rem;
+      margin-right: 5.3rem;
+      border-right: 2px solid #d9d9d9;
+      padding-right: 6rem;
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    h4 {
+      margin-bottom: 2rem;
+      font-family: "Space Grotesk";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+      color: #003866;
+      max-width: 23.8rem;
+    }
+  }
+}
+
+.contactInput {
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 51px;
+    color: #003866;
+    margin-bottom: 5.3rem;
+  }
+
+  input {
+    width: 50rem;
+    height: 5.5rem;
+    margin-bottom: 3.3rem;
+
+    border: 1px solid #79a3c5;
+    border-radius: 3px;
+    padding: 2rem;
+
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #b5cadb;
+  }
+
+  textarea {
+    width: 50rem;
+    height: 25rem;
+    padding: 2rem;
+
+    border: 1px solid rgba(0, 84, 153, 0.5);
+    border-radius: 3px;
+
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #b5cadb;
+    resize: none;
+  }
+
+  button {
+    width: 13rem;
+    height: 3.5rem;
+
+    background: #008cff;
+    border: 2px solid rgba(0, 84, 153, 0.5);
+    border-radius: 73px;
+    margin-top: 4.1rem;
+
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11.7694px;
+    line-height: 150%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fafbfd;
+    cursor: pointer;
+  }
+}

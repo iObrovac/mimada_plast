@@ -1,0 +1,54 @@
+.footerCont {
+  max-width: 140rem;
+  margin: 15rem auto 0 auto;
+  padding: 8rem 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+
+  & > div {
+    margin-right: 2rem;
+  }
+}
+
+.footer1 {
+  margin-top: 3.5rem;
+  max-width: 20rem;
+  h4 {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 100%;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+}
+
+.footer2,
+.footer3 {
+  margin-top: 3.5rem;
+
+  h4 {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18.9778px;
+    line-height: 100%;
+    color: #cdd5e0;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #f2f2f2;
+    margin-bottom: 3rem;
+    max-width: 25.2rem;
+  }
+}
