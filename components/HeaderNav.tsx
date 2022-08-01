@@ -6,6 +6,15 @@ import styles from "../styles/HeaderNav.module.scss";
 const HeaderNav: NextPage = () => {
   const [showNav, setShowNav] = useState(false);
 
+  useEffect(() => {
+    const myHtlm = document.querySelector("html");
+    if (showNav) {
+      myHtlm?.classList.add("noOverflow");
+    } else {
+      myHtlm?.classList.remove("noOverflow");
+    }
+  }, [showNav]);
+
   return (
     <>
       <button

@@ -52,7 +52,11 @@ const Kontakt: NextPage = () => {
             <h4>info@mimadaplast.rs</h4>
           </div>
 
-          <img src="/kontaktNoviSad.svg" alt="City Map" />
+          <img
+            className={styles.contactPic}
+            src="/kontaktNoviSad.svg"
+            alt="City Map"
+          />
         </div>
         <div className={styles.contactInput}>
           <h1>KONTAKTIRAJTE NAS</h1>

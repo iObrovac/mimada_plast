@@ -72,7 +72,11 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className={styles.firstRight}>
-            <img src="/window_white.svg" alt="White Window Open" />
+            <img
+              className={styles.windowWhite}
+              src="/window_white.svg"
+              alt="White Window Open"
+            />
             <img
               className={styles.number1}
               src="/number1.svg"
