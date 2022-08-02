@@ -72,7 +72,8 @@
     justify-content: flex-start;
     transform: translateX(100%);
     transition: transform 0.3s ease-in;
-    overflow: hidden;
+    // overflow: hidden;
+    padding-right: 17px;
 
     & > div {
       display: flex;
@@ -103,11 +104,8 @@
     z-index: 9999;
     border: 0;
     background: transparent;
-    // background: red;
+    cursor: pointer;
 
-    // background-image: url("../public/hamburger.svg");
-    // background-repeat: no-repeat;
-    // background-size: cover;
     $btnWidth: 3.5rem;
     $btnHeight: calc(25 / 35 * $btnWidth);
     $lineHeight: 0.6rem;
