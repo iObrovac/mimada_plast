@@ -162,6 +162,10 @@
     }
   }
 
+  .cenovnik::before {
+    display: none;
+  }
+
   .dropdownSmall {
     width: 100%;
     height: 0;
