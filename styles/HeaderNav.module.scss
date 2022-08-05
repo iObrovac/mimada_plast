@@ -39,6 +39,9 @@
 .logoBig2 {
   display: none;
 }
+.dropdownSmall {
+  display: none;
+}
 
 @media (max-width: 1250px) {
   .logoSmall {
@@ -60,6 +63,10 @@
     transform: translateX(0%);
   }
 
+  .menuWrap {
+    display: none;
+  }
+
   .navContainer {
     position: fixed;
     inset: 0 0 0 0;
@@ -73,13 +80,14 @@
     transform: translateX(100%);
     transition: transform 0.3s ease-in;
     // overflow: hidden;
-    padding-right: 17px;
+    // padding-right: calc(100vw - 100%);
+    width: 100vw;
 
     & > div {
       display: flex;
       flex-direction: column;
       align-self: flex-end;
-      margin: 15rem auto;
+      margin: 5rem auto;
 
       & > a {
         margin: 2rem 0 2rem 0;
@@ -153,6 +161,61 @@
       }
     }
   }
+
+  .dropdownSmall {
+    width: 100%;
+    height: 0;
+
+    overflow: hidden;
+    transition: 0.3s all ease-in;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(115, 115, 115, 0.24);
+    margin-bottom: 2rem;
+
+    & > div {
+      display: flex;
+      margin-left: 4rem;
+      margin-bottom: 0.5rem;
+
+      img {
+        margin-right: 1.5rem;
+      }
+
+      h3 {
+        font-family: "Space Grotesk";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18.9778px;
+        line-height: 150%;
+        color: #001c33;
+      }
+    }
+  }
+
+  .prikazi {
+    height: 15rem;
+  }
+
+  .proizvodi::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+
+    position: absolute;
+    top: 18%;
+    left: 25%;
+    transform: rotate(-135deg);
+
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+
+    transition: 0.3s all ease-in;
+  }
+
+  .rotiraj::before {
+    transform: rotate(45deg);
+  }
 }
 
 @media (max-width: 700px) {
@@ -182,6 +245,10 @@
 }
 
 @media (max-width: 400px) {
+  .navContainer {
+    padding-left: 2rem;
+  }
+
   .menuButton {
     top: 5.5rem;
     width: 2rem;
@@ -196,3 +263,132 @@
     margin-left: 2rem;
   }
 }
+
+.menu > h1 {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #97a3b7;
+  margin: 4rem 0 4rem 4rem;
+}
+
+.menuInner1 {
+  display: flex;
+  margin: 0 4rem 2rem 4rem;
+}
+
+.menuInner2 {
+  display: flex;
+  margin: 0 4rem 2rem 4rem;
+}
+
+.menuOption {
+  display: flex;
+  margin-right: 4rem;
+
+  img {
+    margin-right: 3rem;
+    margin-top: -3rem;
+  }
+
+  & > div {
+    h2 {
+      font-family: "Space Grotesk";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18.9778px;
+      line-height: 150%;
+      color: #111b29;
+    }
+
+    h3 {
+      font-family: "Space Grotesk";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16.6056px;
+      line-height: 150%;
+      color: #677489;
+    }
+  }
+}
+
+.cenovnik {
+  position: relative;
+}
+
+.cenovnik::before {
+  content: "";
+  position: absolute;
+  top: 22%;
+  left: -55%;
+  width: 8px;
+  height: 8px;
+
+  border-radius: 2px;
+  border-bottom: 4px solid #f2f2f2;
+  border-right: 4px solid #f2f2f2;
+  transform: rotate(45deg);
+  transition: 0.3s all ease-in;
+}
+
+.menu::before {
+  content: "";
+  position: absolute;
+  left: 60%;
+  top: -4.5%;
+  width: 25px;
+  height: 25px;
+  z-index: -10;
+  transform: translateX(-50%) rotate(-45deg);
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+.menuWrap {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+
+  width: 72rem;
+  height: 29rem;
+
+  transform: translateX(calc(-50% - 60px));
+  z-index: 5;
+  opacity: 0;
+  transition: 0.3s all ease-in;
+  pointer-events: none;
+}
+.menu {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  border-radius: 1rem;
+  box-shadow: -4px 3px 66px -16px rgb(143 174 252);
+}
+
+.proizvodi {
+  position: relative;
+
+  margin-bottom: 0 !important;
+
+  border-bottom: none !important;
+}
+.proizvodi:hover .menuWrap {
+  opacity: 1;
+  pointer-events: initial;
+  // background-color: red;
+}
+
+.proizvodi:hover ~ .cenovnik::before {
+  transform: rotate(225deg);
+}
+
+// .menu:hover {
+//   opacity: 1;
+// }

@@ -23,7 +23,6 @@ a {
 
 .noOverflow {
   overflow: hidden;
-  // border-right: 17px solid rgba(23, 23, 23, 0.9);
-  padding-right: 17px;
+  padding-right: calc(100vw - 100%);
   background-color: rgba(23, 23, 23, 0.9);
 }
