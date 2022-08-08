@@ -16,12 +16,6 @@ const HeaderNav: NextPage = () => {
     }
   }, [showNav]);
 
-  useEffect(() => {
-    if (window.innerWidth <= 1250) {
-      const littleMenu = document.getElementsByClassName("dropdownSmall");
-    }
-  }, []);
-
   return (
     <>
       <button
