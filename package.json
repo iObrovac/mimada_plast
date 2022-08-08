@@ -1,6 +1,6 @@
 {
   "name": "mimada_plast",
-  "homepage": "https://mimada-plast.vercel.app/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "scripts": {
