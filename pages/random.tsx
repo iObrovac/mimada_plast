@@ -5,11 +5,11 @@ import HeaderNav from "../components/HeaderNav";
 
 const Random: NextPage = () => {
   return (
-    <>
+    <div className={styles.homepageContainer}>
       <h1>OVO JE SAMO DA SE VIDI TEST</h1>
       <HeaderContact />
       <HeaderNav />
-    </>
+    </div>
   );
 };
 
