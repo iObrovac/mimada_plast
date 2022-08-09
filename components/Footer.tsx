@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import styles from "../styles/Footer.module.scss";
+import Link from "next/link";
 
 const Footer: NextPage = () => {
   return (
@@ -8,8 +9,12 @@ const Footer: NextPage = () => {
         <img src="/Logo_Big.svg" alt="Mimada Logo" />
       </div>
       <div className={styles.footer1}>
-        <h4>Cenovnik</h4>
-        <h4>Kontakt</h4>
+        <Link href="/cenovnik">
+          <h4>Cenovnik</h4>
+        </Link>
+        <Link href="/kontakt">
+          <h4>Kontakt</h4>
+        </Link>
         <h4>Uslovi korišćenja</h4>
         <h4>Politika privatnosti</h4>
       </div>

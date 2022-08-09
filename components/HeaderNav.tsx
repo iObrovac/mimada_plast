@@ -26,7 +26,9 @@ const HeaderNav: NextPage = () => {
         <div className={`${styles.line} ${styles.line2}`}></div>
         <div className={`${styles.line} ${styles.line3}`}></div>
       </button>
-      <img className={styles.logoBig2} src="/logo.svg" alt="Logo Mimada" />
+      <Link href="/">
+        <img className={styles.logoBig2} src="/logo.svg" alt="Logo Mimada" />
+      </Link>
       <div data-visible={showNav} className={styles.navContainer}>
         <img className={styles.logoBig} src="/logo.svg" alt="Logo Mimada" />
         <img
