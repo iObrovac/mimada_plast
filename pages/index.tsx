@@ -4,7 +4,6 @@ import styles from "../styles/Home.module.scss";
 import HeaderContact from "../components/HeaderContact";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
-import React, { useState } from "react";
 
 const Home: NextPage = () => {
   return (
