@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.scss";
 import HeaderContact from "../components/HeaderContact";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -25,14 +26,11 @@ const Home: NextPage = () => {
       <h1 className={styles.mainTitle}>
         Lorem ipsum dolor sit amet, consectetuer adipiscing.
       </h1>
-
-      <button
-        onClick={() => console.log("igor")}
-        className={styles.konsultacije}
-      >
-        Zakažite besplatne konsultacije
-      </button>
-
+      <Link href="/kontakt">
+        <button className={styles.konsultacije}>
+          Zakažite besplatne konsultacije
+        </button>
+      </Link>
       <div className={styles.services}>
         <h2 className={styles.servicesTitle}>
           Phasellus ultrices nulla quis nibh.
