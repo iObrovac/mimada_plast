@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/HeaderNav.module.scss";
 
 const HeaderNav: NextPage = () => {

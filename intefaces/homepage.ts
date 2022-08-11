@@ -1,0 +1,36 @@
+export interface IHomepage {
+  Button: string;
+  Naslov: string;
+  Naslov2: string;
+  Opcija1_naslov: string;
+  Opcija1_tekst: string;
+  Opcija2_naslov: string;
+  Opcija2_tekst: string;
+  Opcija3_naslov: string;
+  Opcija3_tekst: string;
+  Partner1_opis: string;
+  Partner2_opis: string;
+  Partner3_opis: string;
+  Podnaslov: string;
+  Podnaslov2: string;
+  Proizvod1_naslov: string;
+  Proizvod1_opis: string;
+  Proizvod2_naslov: string;
+  Proizvod2_opis: string;
+  Proizvod3_naslov: string;
+  Proizvod3_opis: string;
+  Proizvod4_naslov: string;
+  Proizvod4_opis: string;
+  Proizvod5_naslov: string;
+  Proizvod5_opis: string;
+  Proizvod6_naslov: string;
+  Proizvod6_opis: string;
+  Slider1_naslov: string;
+  Slider1_opis: string;
+  Slider2_naslov: string;
+  Slider2_opis: string;
+  Slider3_naslov: string;
+  Slider3_opis: string;
+  Slider4_naslov: string;
+  Slider4_opis: string;
+}

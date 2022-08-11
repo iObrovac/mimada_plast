@@ -1,8 +1,18 @@
 import type { NextPage } from "next";
 import styles from "../styles/Footer.module.scss";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { IFooterData } from "../intefaces/footer";
 
 const Footer: NextPage = () => {
+  const [footerData, setFooterData] = useState<IFooterData>();
+
+  useEffect(() => {
+    fetch("https://enigmatic-hollows-03847.herokuapp.com/api/footers")
+      .then((response) => response.json())
+      .then((data) => setFooterData(data.data[0].attributes));
+  }, []);
+
   return (
     <div className={styles.footerCont}>
       <div className={styles.footerPic}>
@@ -20,21 +30,21 @@ const Footer: NextPage = () => {
       </div>
       <div className={styles.footer2}>
         <h4>Poslovno Ime</h4>
-        <h5>Mimada VV Plast d.o.o. Novi Sad</h5>
+        <h5>{footerData?.poslovno_ime}</h5>
         <h4>Matični Broj</h4>
-        <h5>012345678</h5>
+        <h5>{footerData?.poslovno_ime}</h5>
         <h4>PIB</h4>
-        <h5>012345678</h5>
+        <h5>{footerData?.PIB}</h5>
         <h4>Radno vreme</h4>
-        <h5>Pon - Pet: 07:00 - 16:00</h5>
+        <h5>{footerData?.Radno_vreme}</h5>
       </div>
       <div className={styles.footer3}>
         <h4>Adresa</h4>
-        <h5>Bulevar kralja Aleksandra 1, 21000 Novi Sad</h5>
+        <h5>{footerData?.Adresa}</h5>
         <h4>Telefon</h4>
-        <h5>+381 61 123 45 67</h5>
+        <h5>{footerData?.Telefon}</h5>
         <h4>E-pošta</h4>
-        <h5>info@mimadaplast.rs</h5>
+        <h5>{footerData?.email}</h5>
       </div>
     </div>
   );
