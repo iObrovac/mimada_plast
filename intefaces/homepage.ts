@@ -1,3 +1,6 @@
+import { IFooterData } from "./footer";
+import { IContactData } from "./header";
+
 export interface IHomepage {
   Button: string;
   Naslov: string;
@@ -33,4 +36,46 @@ export interface IHomepage {
   Slider3_opis: string;
   Slider4_naslov: string;
   Slider4_opis: string;
+}
+
+export interface Props {
+  headerInfo: InnerData;
+  headerFirst: InnerData2;
+  footer: InnerData3;
+}
+
+export interface InnerData2 {
+  data: InnerAttributes2;
+}
+
+export interface InnerData3 {
+  data: InnerAttributes3;
+}
+
+export interface InnerAttributes3 {
+  0: attributes3;
+}
+
+export interface attributes3 {
+  attributes: IFooterData;
+}
+
+export interface InnerAttributes2 {
+  0: attributes2;
+}
+
+export interface attributes2 {
+  attributes: IContactData;
+}
+
+export interface InnerData {
+  data: InnerAttributes;
+}
+
+export interface InnerAttributes {
+  0: attributes;
+}
+
+export interface attributes {
+  attributes: IHomepage;
 }

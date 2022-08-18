@@ -627,6 +627,11 @@
 }
 
 @media (max-width: 500px) {
+  .services {
+    max-width: 95%;
+    border: 5px solid rgba(21, 21, 74, 0.3);
+  }
+
   .windowWhite {
     width: 22rem;
   }
@@ -636,13 +641,23 @@
   .firstLeft3_text {
     & > p {
       max-width: 20rem;
-      font-size: 10px;
+      font-size: 13px;
     }
 
     & > h3 {
-      font-size: 14px;
+      font-size: 18px;
+      font-weight: 700;
     }
   }
+
+  .number1 {
+    top: -3%;
+  }
+
+  .number2 {
+    right: 30%;
+  }
+
   .titleSecond {
     font-size: 40px;
     max-width: 80%;
@@ -650,12 +665,21 @@
   }
 
   .fourSquares {
-    max-width: 30rem;
-    height: 30rem;
+    max-width: 95%;
+    height: 35rem;
+
+    & > div > div {
+      border: 5px solid rgba(21, 21, 74, 0.3);
+    }
 
     & > div > div > h4 {
       margin-top: 2rem;
     }
+  }
+
+  .sponsors {
+    max-width: 95%;
+    border: 5px solid rgba(21, 21, 74, 0.3);
   }
 
   .firstLeft1_number,

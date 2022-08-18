@@ -165,7 +165,7 @@
 
 @media (max-width: 700px) {
   .contactForm {
-    max-width: 40rem;
+    max-width: 90%;
   }
 
   .contactInfo {
@@ -177,6 +177,7 @@
 
   .contactPic {
     width: 30rem;
+    margin: 0 2rem;
   }
 
   .contactInput {
@@ -197,14 +198,16 @@
 
 @media (max-width: 450px) {
   .contactForm {
-    max-width: 30rem;
+    padding: 4rem;
+    max-width: 95%;
+    border: 5px solid rgba(21, 21, 74, 0.3);
   }
 
   .contactInfo {
     & > div {
       h4 {
-        max-width: 20rem;
-        font-size: 13px;
+        max-width: 22rem;
+        font-size: 16px;
       }
     }
 

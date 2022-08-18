@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import styles from "../styles/HeaderContact.module.scss";
-import { fetcher } from "../lib/api";
 import { IContactData } from "../intefaces/header";
 
-const HeaderContact: NextPage = (res) => {
-  const [contactData, setContactData] = useState<IContactData>();
+export interface IHeaderData {
+  data: IContactData;
+}
 
-  useEffect(() => {
-    fetch("https://enigmatic-hollows-03847.herokuapp.com/api/navbars")
-      .then((response) => response.json())
-      .then((data) => setContactData(data.data[0].attributes));
-  }, []);
+const HeaderContact: NextPage<IHeaderData> = (props) => {
+  const [contactData, setContactData] = useState<IContactData>(props.data);
 
   return (
     <div className={styles.headerContainer}>

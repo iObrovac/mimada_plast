@@ -1,11 +1,32 @@
 import type { NextPage } from "next";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Footer from "../components/Footer";
 import HeaderContact from "../components/HeaderContact";
 import HeaderNav from "../components/HeaderNav";
+import { PropsCenovnik } from "../intefaces/cenovnik";
 import styles from "../styles/Cenovnik.module.scss";
 
-const Cenovnik: NextPage = () => {
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://enigmatic-hollows-03847.herokuapp.com/api/navbars"
+  );
+  const header = await res.json();
+
+  const res2 = await fetch(
+    "https://enigmatic-hollows-03847.herokuapp.com/api/footers"
+  );
+
+  const footer = await res2.json();
+
+  return {
+    props: {
+      header,
+      footer,
+    },
+  };
+}
+
+const Cenovnik: NextPage<PropsCenovnik> = (props) => {
   const slider = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -61,7 +82,7 @@ const Cenovnik: NextPage = () => {
 
   return (
     <div className={styles.cenovnikContainer}>
-      <HeaderContact />
+      <HeaderContact data={props.header.data[0].attributes} />
       <HeaderNav />
       <img
         className={styles.cenovnikLogo}
@@ -310,7 +331,7 @@ const Cenovnik: NextPage = () => {
           <h5>*cena izrazena u evrima</h5>
         </div>
       </div>
-      <Footer />
+      <Footer data={props.footer.data[0].attributes} />
     </div>
   );
 };

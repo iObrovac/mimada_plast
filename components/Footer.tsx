@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IFooterData } from "../intefaces/footer";
 
-const Footer: NextPage = () => {
+export interface IFooterInfo {
+  data: IFooterData;
+}
+
+const Footer: NextPage<IFooterInfo> = (props) => {
   const [footerData, setFooterData] = useState<IFooterData>();
 
   useEffect(() => {
@@ -32,7 +36,7 @@ const Footer: NextPage = () => {
         <h4>Poslovno Ime</h4>
         <h5>{footerData?.poslovno_ime}</h5>
         <h4>Matični Broj</h4>
-        <h5>{footerData?.poslovno_ime}</h5>
+        <h5>{footerData?.Maticni_broj}</h5>
         <h4>PIB</h4>
         <h5>{footerData?.PIB}</h5>
         <h4>Radno vreme</h4>

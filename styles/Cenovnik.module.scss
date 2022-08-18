@@ -127,12 +127,14 @@
 
 @media (max-width: 900px) {
   .cenovnikSlider {
-    height: 50rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     & > div {
       min-width: 50rem;
       height: 40rem;
-      margin: auto 5rem;
+      margin: 4rem 5rem;
 
       h1 {
         font-size: 30px;
@@ -185,11 +187,15 @@
 
 @media (max-width: 500px) {
   .cenovnikSlider {
+    overflow-x: none;
+    margin: 0 auto;
+
     & > div {
-      min-width: 35rem;
+      min-width: 95%;
       height: 25rem;
-      margin: auto 1.5rem;
+      margin: 2rem auto;
       padding: 0 2rem;
+      border: 5px solid rgba(21, 21, 74, 0.3);
 
       h1 {
         font-size: 20px;
@@ -204,10 +210,14 @@
   }
 
   .measures {
-    font-size: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .prices {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
