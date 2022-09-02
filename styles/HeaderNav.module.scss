@@ -24,6 +24,10 @@
   cursor: pointer;
 }
 
+.proizvodiSmall {
+  display: none;
+}
+
 .pocetna,
 .proizvodi,
 .cenovnik {
@@ -177,10 +181,11 @@
     border-bottom: 1px solid rgba(115, 115, 115, 0.24);
     margin-bottom: 2rem;
 
-    & > div {
+    & > a > div {
       display: flex;
       margin-left: 4rem;
       margin-bottom: 0.5rem;
+      cursor: pointer;
 
       img {
         margin-right: 1.5rem;
@@ -200,25 +205,45 @@
   .prikazi {
     height: 15rem;
   }
+  .proizvodi {
+    display: none;
+  }
+  .proizvodiSmall {
+    display: inline-block;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+  .proizvodiSmallArrow {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    min-width: 50px;
+    min-height: 25px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
 
-  .proizvodi::before {
+  $transform-translate: translate(-50%, 0%);
+
+  .proizvodiSmallArrow::before {
     content: "";
     width: 10px;
     height: 10px;
 
     position: absolute;
-    top: 18%;
-    left: 25%;
-    transform: rotate(-135deg);
-
+    top: 0;
+    left: 50%;
+    transform: $transform-translate rotate(-135deg);
+    border-color: transparent;
     border-bottom: 4px solid black;
     border-right: 4px solid black;
 
     transition: 0.3s all ease-in;
   }
 
-  .rotiraj::before {
-    transform: rotate(45deg);
+  .proizvodiSmallArrow.rotiraj::before {
+    transform: $transform-translate rotate(45deg);
   }
 }
 

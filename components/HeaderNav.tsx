@@ -27,7 +27,9 @@ const HeaderNav: NextPage = () => {
         <div className={`${styles.line} ${styles.line3}`}></div>
       </button>
       <Link href="/">
-        <img className={styles.logoBig2} src="/logo.svg" alt="Logo Mimada" />
+        <a>
+          <img className={styles.logoBig2} src="/logo.svg" alt="Logo Mimada" />
+        </a>
       </Link>
       <div data-visible={showNav} className={styles.navContainer}>
         <img className={styles.logoBig} src="/logo.svg" alt="Logo Mimada" />
@@ -41,26 +43,25 @@ const HeaderNav: NextPage = () => {
             <a className={styles.pocetna}>Početna</a>
           </Link>
 
-          <Link href="">
-            <a
-              onClick={() => setShowSmall((prev) => !prev)}
-              className={`${styles.proizvodi} ${
-                showSmall ? styles.rotiraj : ""
-              }`}
-            >
+          <Link href="/proizvodi">
+            <a className={styles.proizvodi}>
               Proizvodi
               <div className={styles.menuWrap}>
                 <div className={styles.menu}>
                   <h1>Lorem ipsum dolor sit amet</h1>
                   <div className={styles.menuInner}>
                     <div className={styles.menuInner1}>
-                      <div className={styles.menuOption}>
-                        <img src="/menuStolarija.svg" alt="" />
-                        <div>
-                          <h2>PVC Stolarija</h2>
-                          <h3>Vestibulum auctor dapibus</h3>
-                        </div>
-                      </div>
+                      <Link href="/pvcstolarija">
+                        <a>
+                          <div className={styles.menuOption}>
+                            <img src="/menuStolarija.svg" alt="" />
+                            <div>
+                              <h2>PVC Stolarija</h2>
+                              <h3>Vestibulum auctor dapibus</h3>
+                            </div>
+                          </div>
+                        </a>
+                      </Link>
                       <div className={styles.menuOption}>
                         <img src="/menuKlizniSistemi.svg" alt="" />
                         <div>
@@ -90,19 +91,42 @@ const HeaderNav: NextPage = () => {
               </div>
             </a>
           </Link>
+          <Link href="/proizvodi">
+            <a className={styles.proizvodiSmall}>
+              Proizvodi
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  setShowSmall((prev) => !prev);
+                }}
+                className={`${styles.proizvodiSmallArrow} ${
+                  showSmall ? styles.rotiraj : ""
+                }`}
+              />
+            </a>
+          </Link>
           <div
             className={`${styles.dropdownSmall} ${
               showSmall ? styles.prikazi : ""
             }`}
           >
-            <div>
-              <img src="/smallPVC.svg" alt="" />
-              <h3>PVC Stolarija</h3>
-            </div>
-            <div>
-              <img src="/smallALU.svg" alt="" />
-              <h3>ALU Stolarija</h3>
-            </div>
+            <Link href="/pvcstolarija">
+              <a>
+                <div>
+                  <img src="/smallPVC.svg" alt="" />
+                  <h3>PVC Stolarija</h3>
+                </div>
+              </a>
+            </Link>
+            <Link href="/pvcstolarija">
+              <a>
+                <div>
+                  <img src="/smallALU.svg" alt="" />
+                  <h3>ALU Stolarija</h3>
+                </div>
+              </a>
+            </Link>
             <div>
               <img src="/smallKLIZNI.svg" alt="" />
               <h3>Klizni sistemi</h3>
