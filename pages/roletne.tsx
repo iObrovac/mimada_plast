@@ -51,7 +51,6 @@ const Roletne: NextPage<IRoletneProps> = ({
 }) => {
   const roletneData: IRoletneData = roletneInfo.data[0].attributes;
 
-  console.log("zaglavljeTabele", zaglavljeTabele);
   return (
     <div className={styles.container}>
       <HeaderContact data={header.data[0].attributes} />

@@ -35,8 +35,6 @@ export async function getStaticProps() {
 const Pvcstolarija: NextPage<IPVCProps> = (props) => {
   const [pvc, setPvc] = useState(props.pvcInfo.data[0].attributes);
 
-  console.log(pvc);
-
   return (
     <div className={styles.container}>
       <HeaderContact data={props.header.data[0].attributes} />
