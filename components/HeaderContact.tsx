@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import styles from "../styles/HeaderContact.module.scss";
-import { IContactData } from "../intefaces/header";
-
-export interface IHeaderData {
-  data: IContactData;
-}
+import { IContactData, IHeaderData } from "../intefaces/header";
 
 const HeaderContact: NextPage<IHeaderData> = (props) => {
   const [contactData, setContactData] = useState<IContactData>(props.data);
@@ -15,15 +11,15 @@ const HeaderContact: NextPage<IHeaderData> = (props) => {
       <div className={styles.info}>
         <div className={styles.phone}>
           <img src="/phone_num.svg" alt="Phone Number" />
-          {contactData?.Broj_telefona}
+          {contactData.Broj_telefona}
         </div>
         <div className={styles.mail}>
           <img src="/email_icon.svg" alt="Mail Icon" />
-          {contactData?.E_mail}
+          {contactData.E_mail}
         </div>
         <div className={styles.hours}>
           <img src="/clock.svg" alt="" />
-          {contactData?.Radno_vreme}
+          {contactData.Radno_vreme}
         </div>
       </div>
       <div className={styles.navigation}></div>

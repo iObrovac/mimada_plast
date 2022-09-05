@@ -7,3 +7,7 @@ export interface IFooterData {
   email: string;
   poslovno_ime: string;
 }
+
+export interface IFooterInfo {
+  data: IFooterData;
+}

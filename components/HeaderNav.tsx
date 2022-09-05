@@ -32,7 +32,11 @@ const HeaderNav: NextPage = () => {
         </a>
       </Link>
       <div data-visible={showNav} className={styles.navContainer}>
-        <img className={styles.logoBig} src="/logo.svg" alt="Logo Mimada" />
+        <Link href="/">
+          <a>
+            <img className={styles.logoBig} src="/logo.svg" alt="Logo Mimada" />
+          </a>
+        </Link>
         <img
           className={styles.logoSmall}
           src="/logo_small.svg"

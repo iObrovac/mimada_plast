@@ -36,8 +36,6 @@ export async function getStaticProps() {
 const Cenovnik: NextPage<PropsCenovnik> = (props) => {
   const slider = useRef<HTMLDivElement>(null);
 
-  console.log(props.cenovnik.data[0].attributes);
-
   const pvc = props.cenovnik.data[0].attributes;
   const alu = props.cenovnik.data[1].attributes;
   const ulazna = props.cenovnik.data[2].attributes;

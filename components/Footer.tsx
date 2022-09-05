@@ -2,25 +2,19 @@ import type { NextPage } from "next";
 import styles from "../styles/Footer.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { IFooterData } from "../intefaces/footer";
-
-export interface IFooterInfo {
-  data: IFooterData;
-}
+import { IFooterData, IFooterInfo } from "../intefaces/footer";
 
 const Footer: NextPage<IFooterInfo> = (props) => {
-  const [footerData, setFooterData] = useState<IFooterData>();
-
-  useEffect(() => {
-    fetch("https://enigmatic-hollows-03847.herokuapp.com/api/footers")
-      .then((response) => response.json())
-      .then((data) => setFooterData(data.data[0].attributes));
-  }, []);
+  const [footerData, setFooterData] = useState<IFooterData>(props.data);
 
   return (
     <div className={styles.footerCont}>
       <div className={styles.footerPic}>
-        <img src="/Logo_Big.svg" alt="Mimada Logo" />
+        <Link href="/">
+          <a>
+            <img src="/Logo_Big.svg" alt="Mimada Logo" />
+          </a>
+        </Link>
       </div>
       <div className={styles.footer1}>
         <Link href="/cenovnik">
