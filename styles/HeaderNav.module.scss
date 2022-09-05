@@ -6,6 +6,10 @@
   align-items: center;
   position: relative;
 
+  & > div {
+    display: flex;
+  }
+
   img {
     cursor: pointer;
   }
@@ -411,13 +415,8 @@
 .proizvodi:hover .menuWrap {
   opacity: 1;
   pointer-events: initial;
-  // background-color: red;
 }
 
 .proizvodi:hover ~ .cenovnik::before {
   transform: rotate(225deg);
 }
-
-// .menu:hover {
-//   opacity: 1;
-// }

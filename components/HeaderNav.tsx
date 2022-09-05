@@ -46,52 +46,67 @@ const HeaderNav: NextPage = () => {
           <Link href="/">
             <a className={styles.pocetna}>Početna</a>
           </Link>
+          <div className={styles.proizvodi}>
+            <Link href="/proizvodi">
+              <a>Proizvodi</a>
+            </Link>
 
-          <Link href="/proizvodi">
-            <a className={styles.proizvodi}>
-              Proizvodi
-              <div className={styles.menuWrap}>
-                <div className={styles.menu}>
-                  <h1>Lorem ipsum dolor sit amet</h1>
-                  <div className={styles.menuInner}>
-                    <div className={styles.menuInner1}>
-                      <div className={styles.menuOption}>
-                        <img src="/menuStolarija.svg" alt="" />
-                        <div>
-                          <h2>PVC Stolarija</h2>
-                          <h3>Vestibulum auctor dapibus</h3>
+            <div className={styles.menuWrap}>
+              <div className={styles.menu}>
+                <h1>Lorem ipsum dolor sit amet</h1>
+                <div className={styles.menuInner}>
+                  <div className={styles.menuInner1}>
+                    <Link href="/pvcstolarija">
+                      <a>
+                        <div className={styles.menuOption}>
+                          <img src="/menuStolarija.svg" alt="" />
+                          <div>
+                            <h2>PVC Stolarija</h2>
+                            <h3>Vestibulum auctor dapibus</h3>
+                          </div>
                         </div>
-                      </div>
-
-                      <div className={styles.menuOption}>
-                        <img src="/menuKlizniSistemi.svg" alt="" />
-                        <div>
-                          <h2>Klizni sistemi</h2>
-                          <h3>Vestibulum auctor dapibus</h3>
+                      </a>
+                    </Link>
+                    <Link href="/">
+                      <a>
+                        <div className={styles.menuOption}>
+                          <img src="/menuKlizniSistemi.svg" alt="" />
+                          <div>
+                            <h2>Klizni sistemi</h2>
+                            <h3>Vestibulum auctor dapibus</h3>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className={styles.menuInner2}>
-                      <div className={styles.menuOption}>
-                        <img src="/menuAluStolarija.svg" alt="" />
-                        <div>
-                          <h2>ALU Stolarija</h2>
-                          <h3>Vestibulum auctor dapibus</h3>
+                      </a>
+                    </Link>
+                  </div>
+                  <div className={styles.menuInner2}>
+                    <Link href="/">
+                      <a>
+                        <div className={styles.menuOption}>
+                          <img src="/menuAluStolarija.svg" alt="" />
+                          <div>
+                            <h2>ALU Stolarija</h2>
+                            <h3>Vestibulum auctor dapibus</h3>
+                          </div>
                         </div>
-                      </div>
-                      <div className={styles.menuOption}>
-                        <img src="/menuDodatna.svg" alt="" />
-                        <div>
-                          <h2>Dodatna oprema</h2>
-                          <h3>Vestibulum auctor dapibus</h3>
+                      </a>
+                    </Link>
+                    <Link href="/">
+                      <a>
+                        <div className={styles.menuOption}>
+                          <img src="/menuDodatna.svg" alt="" />
+                          <div>
+                            <h2>Dodatna oprema</h2>
+                            <h3>Vestibulum auctor dapibus</h3>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
-            </a>
-          </Link>
+            </div>
+          </div>
           <Link href="/proizvodi">
             <a className={styles.proizvodiSmall}>
               Proizvodi
