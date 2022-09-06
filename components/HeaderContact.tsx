@@ -22,7 +22,6 @@ const HeaderContact: NextPage<IHeaderData> = (props) => {
           {contactData.Radno_vreme}
         </div>
       </div>
-      <div className={styles.navigation}></div>
     </div>
   );
 };

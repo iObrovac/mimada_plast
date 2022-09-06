@@ -135,7 +135,7 @@ const HeaderNav: NextPage = () => {
                 </div>
               </a>
             </Link>
-            <Link href="/pvcstolarija">
+            <Link href="/">
               <a>
                 <div>
                   <img src="/smallALU.svg" alt="" />
@@ -143,7 +143,7 @@ const HeaderNav: NextPage = () => {
                 </div>
               </a>
             </Link>
-            <Link href="/pvcstolarija">
+            <Link href="/">
               <a>
                 <div>
                   <img src="/smallKLIZNI.svg" alt="" />
@@ -151,7 +151,7 @@ const HeaderNav: NextPage = () => {
                 </div>
               </a>
             </Link>
-            <Link href="/pvcstolarija">
+            <Link href="/">
               <a>
                 <div>
                   <img src="/smallDODATNA.svg" alt="" />
