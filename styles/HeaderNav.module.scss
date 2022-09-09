@@ -264,6 +264,20 @@
 }
 
 @media (max-width: 500px) {
+  .navContainer {
+    // padding-left: 2rem;
+
+    & > div {
+      max-width: 90%;
+    }
+  }
+
+  .pocetna,
+  .cenovnik,
+  .kontakt {
+    max-width: 100%;
+  }
+
   .menuButton {
     right: 5rem;
   }
@@ -278,10 +292,6 @@
 }
 
 @media (max-width: 400px) {
-  .navContainer {
-    padding-left: 2rem;
-  }
-
   .menuButton {
     top: 5.5rem;
     width: 2rem;

@@ -91,7 +91,7 @@
   }
 
   .footerPic {
-    & > img {
+    & > a > img {
       max-width: 30rem;
     }
   }
@@ -122,7 +122,7 @@
   .footerCont {
     padding: 0 2rem;
   }
-  .footerPic > img {
+  .footerPic > a > img {
     max-width: 15rem;
   }
 
