@@ -89,7 +89,7 @@
     transition: transform 0.3s ease-in;
     // overflow: hidden;
     // padding-right: calc(100vw - 100%);
-    width: 100vw;
+    min-width: 100vw; // OVO RESAVA POLA PROBLEMA adding min width
 
     & > div {
       display: flex;
@@ -294,16 +294,18 @@
 @media (max-width: 400px) {
   .menuButton {
     top: 5.5rem;
-    width: 2rem;
+    width: 7rem;
+    right: 0;
   }
 
   .logoBig2 {
-    margin-left: 4rem;
+    margin-left: 2rem;
     height: 3rem;
   }
 
   .logoSmall {
     margin-left: 2rem;
+    height: 3rem;
   }
 }
 

@@ -223,6 +223,14 @@ const Home: NextPage<Props> = (props) => {
             <img src="/winkhaus.svg" alt="Winkhaus Logo" />
             <p>{homeData?.Partner3_opis}</p>
           </div>
+          <div className={styles.sponsor4}>
+            <img src="wurthwuth.svg" alt="Wurth Logo" />
+            <p>{homeData?.Partner3_opis}</p>
+          </div>
+          <div className={styles.sponsor5}>
+            <img src="/kommer.svg" alt="Winkhaus Logo" />
+            <p>{homeData?.Partner3_opis}</p>
+          </div>
         </div>
       </div>
       <Footer data={props.footer.data[0].attributes} />
