@@ -28,11 +28,14 @@
 
 .cenovnikSlider {
   width: 100%;
-  height: 65rem;
-  overflow-x: scroll;
+  // height: 65rem;
+  // overflow-x: scroll;
   margin: -73rem auto -10rem auto;
 
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
   position: relative;
   cursor: pointer;
 
@@ -45,14 +48,14 @@
   }
 
   & > div {
-    min-width: 67.5rem;
-    height: 50rem;
+    width: 67.5rem;
+    height: fit-content;
 
     background: #f2f2f2;
     border: 10px solid rgba(21, 21, 74, 0.3);
     border-radius: 50px;
     position: relative;
-    margin: auto 10rem;
+    margin-bottom: 5rem;
     pointer-events: none;
 
     display: flex;
@@ -65,8 +68,9 @@
       font-size: 36px;
       line-height: 46px;
       color: #003866;
-      align-self: flex-start;
-      margin: 6rem 0 4rem 6rem;
+      align-self: center;
+      // margin: 6rem 0 4rem 6rem;
+      margin: 6rem 0;
     }
 
     h5 {
@@ -84,11 +88,11 @@
     }
 
     & > div {
-      display: grid;
-      grid-template-columns: repeat(6, 5rem);
-      grid-row-gap: 1.8rem;
-      grid-column-gap: 3rem;
-      margin: 0 auto;
+      // display: grid;
+      // grid-template-columns: repeat(6, 5rem);
+      // grid-row-gap: 1.8rem;
+      // grid-column-gap: 3rem;
+      // margin: 0 auto;
 
       & > div {
         display: flex;
@@ -96,6 +100,35 @@
       }
     }
   }
+}
+
+.uvod {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  text-align: center;
+  color: #003866;
+
+  margin: 2rem 5rem 4rem 5rem;
+}
+
+.jednokrilniProzori,
+.dvokrilniProzori,
+.jbv,
+.dbv,
+.roletne,
+.komarnici,
+.ulaznaVrata {
+  display: grid;
+  grid-template-columns: 15rem 15rem;
+  grid-row-gap: 1rem;
+  grid-column-gap: 5rem;
+
+  justify-content: center;
+
+  margin-bottom: 5rem;
 }
 
 .measures {
@@ -120,25 +153,30 @@
 
 .line {
   grid-column-start: 1;
-  grid-column-end: 7;
+  grid-column-end: 3;
   border-bottom: 1px solid #b9b9b9;
   width: 100%;
 }
 
 @media (max-width: 900px) {
+  .cenovnikLogo {
+    width: 70rem;
+  }
+
   .cenovnikSlider {
-    height: 100%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: -65rem;
 
     & > div {
       min-width: 50rem;
-      height: 40rem;
+      height: fit-content;
       margin: 4rem 5rem;
 
       h1 {
         font-size: 30px;
-        margin: 3rem 0 2rem 3rem;
+        margin: 3rem 0 2rem 0;
       }
 
       h5 {
@@ -149,7 +187,7 @@
         grid-column-gap: 1.5rem;
         grid-row-gap: 1rem;
         margin-top: 3rem;
-        margin-bottom: 2rem;
+        margin-bottom: 5rem;
       }
     }
   }
@@ -164,12 +202,12 @@
     margin: 5rem auto -10rem auto;
 
     & > div {
-      min-width: 40rem;
-      height: 30rem;
+      width: 90%;
+      height: fit-content;
 
       h1 {
         font-size: 24px;
-        margin: 1.5rem 0 1rem 2rem;
+        margin: 1.5rem 0 1rem 0;
       }
 
       h5 {
@@ -179,7 +217,7 @@
         grid-column-gap: 0;
         grid-row-gap: 0.5rem;
         margin-top: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
       }
     }
   }
@@ -192,19 +230,27 @@
 
     & > div {
       min-width: 95%;
-      height: 25rem;
-      margin: 2rem auto;
-      padding: 0 2rem;
+      height: fit-content;
+      margin: 4rem auto;
+      // padding: 0 2rem;
       border: 5px solid rgba(21, 21, 74, 0.3);
 
+      p {
+        text-align: left;
+        width: 90%;
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+
       h1 {
-        font-size: 20px;
-        margin: 0.7rem 0 0.5rem 2rem;
+        font-size: 24px;
+        margin: 2rem 0 2rem 0;
+        text-align: center;
       }
 
       & > div {
         margin-top: 0rem;
-        margin-bottom: 0rem;
+        margin-bottom: 3rem;
       }
     }
   }
@@ -219,5 +265,47 @@
 
   .prices {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .jednokrilniProzori,
+  .dvokrilniProzori,
+  .jbv,
+  .dbv,
+  .roletne,
+  .komarnici,
+  .ulaznaVrata {
+    grid-template-columns: 15rem 10rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .cenovnikSlider {
+    & > div {
+      h1 {
+        margin: 4rem 2rem 2rem 2rem;
+      }
+
+      p {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .jednokrilniProzori,
+  .dvokrilniProzori,
+  .jbv,
+  .dbv,
+  .roletne,
+  .komarnici,
+  .ulaznaVrata {
+    grid-template-columns: 12rem 8rem;
+  }
+
+  .prices {
+    font-size: 12px;
   }
 }

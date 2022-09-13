@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Footer from "../components/Footer";
 import HeaderContact from "../components/HeaderContact";
 import HeaderNav from "../components/HeaderNav";
 import { IKontakt, PropsKontakt } from "../intefaces/kontakt";
 import styles from "../styles/Kontakt.module.scss";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
 export async function getStaticProps() {
   const res = await fetch(
@@ -32,10 +33,33 @@ export async function getStaticProps() {
   };
 }
 
+function Map() {
+  // const center = useMemo(
+  //   () => ({ lat: 45.2987955266168, lng: 19.82615197616567 }),
+  //   []
+  // );
+
+  return (
+    <GoogleMap
+      zoom={15}
+      center={{ lat: 45.29982894123239, lng: 19.829251905796745 }}
+      mapContainerClassName={styles.mapCont}
+    >
+      <MarkerF position={{ lat: 45.29880684676557, lng: 19.826302179878297 }} />
+    </GoogleMap>
+  );
+}
+
 const Kontakt: NextPage<PropsKontakt> = (props) => {
   const [kontaktData, setKontaktData] = useState<IKontakt>(
     props.kontaktInfo.data[0].attributes
   );
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyBNLrJhOMz6idD05pzfn5lhA-TAw-mAZCU",
+  });
+
+  // if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <div className={styles.kontaktContainer}>
@@ -84,11 +108,9 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
             <h4>{kontaktData?.email}</h4>
           </div>
 
-          <img
-            className={styles.contactPic}
-            src="/kontaktNoviSad.svg"
-            alt="City Map"
-          />
+          {/* <div className={styles.contactPic}> */}
+          {isLoaded ? <Map /> : <div>Loading</div>}
+          {/* </div> */}
         </div>
         <div className={styles.contactInput}>
           <h1>KONTAKTIRAJTE NAS</h1>

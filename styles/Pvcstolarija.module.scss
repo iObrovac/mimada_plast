@@ -390,6 +390,14 @@
 }
 
 @media (max-width: 500px) {
+  .section3 {
+    &__text {
+      h3 {
+        font-size: 31px;
+      }
+    }
+  }
+
   .section4 {
     & > div {
       & > div:nth-child(2) {

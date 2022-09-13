@@ -34,65 +34,12 @@ export async function getStaticProps() {
 }
 
 const Cenovnik: NextPage<PropsCenovnik> = (props) => {
-  const slider = useRef<HTMLDivElement>(null);
-
   const pvc = props.cenovnik.data[0].attributes;
   const alu = props.cenovnik.data[1].attributes;
   const ulazna = props.cenovnik.data[2].attributes;
   const klizni = props.cenovnik.data[3].attributes;
   const roletne = props.cenovnik.data[4].attributes;
   const komarnici = props.cenovnik.data[5].attributes;
-
-  useEffect(() => {
-    const element = slider.current;
-    let isDown = false;
-    let startX: number, scrollLeft: number;
-
-    const mouseDown = (e: MouseEvent) => {
-      if (element) {
-        isDown = true;
-        startX = e.pageX - element.offsetLeft;
-        scrollLeft = element.scrollLeft;
-      }
-    };
-
-    const mouseLeave = (e: MouseEvent) => {
-      if (element) {
-        isDown = false;
-      }
-    };
-
-    const mouseUp = (e: MouseEvent) => {
-      if (element) {
-        isDown = false;
-      }
-    };
-
-    const mouseMove = (e: MouseEvent) => {
-      if (element) {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - element.offsetLeft;
-        const walk = (x - startX) * 3;
-        element.scrollLeft = scrollLeft - walk;
-      }
-    };
-    if (element) {
-      element.addEventListener("mousedown", mouseDown);
-      element.addEventListener("mouseleave", mouseLeave);
-      element.addEventListener("mouseup", mouseUp);
-      element.addEventListener("mousemove", mouseMove);
-    }
-
-    return () => {
-      if (element) {
-        element.removeEventListener("mousedown", mouseDown);
-        element.removeEventListener("mouseleave", mouseLeave);
-        element.removeEventListener("mouseup", mouseUp);
-        element.removeEventListener("mousemove", mouseMove);
-      }
-    };
-  }, []);
 
   return (
     <div className={styles.cenovnikContainer}>
@@ -103,338 +50,249 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
         src="/window.svg"
         alt="Company Logo"
       />
-      <div ref={slider} className={styles.cenovnikSlider}>
+      <div className={styles.cenovnikSlider}>
         <div>
-          <h1>{pvc.naslov_tabele}</h1>
-          <div>
-            <div></div>
-            <div className={styles.measures}>
-              {pvc.horizontalno_zaglavlje_1}
-            </div>
-            <div className={styles.measures}>
-              {pvc.horizontalno_zaglavlje_2}
-            </div>
-            <div className={styles.measures}>
-              {pvc.horizontalno_zaglavlje_3}
-            </div>
-            <div className={styles.measures}>
-              {pvc.horizontalno_zaglavlje_4}
-            </div>
-            <div className={styles.measures}>
-              {pvc.horizontalno_zaglavlje_5}
-            </div>
-            <div className={styles.line}></div>
-            <div className={styles.measures}>{pvc.vertikalno_zaglavlje_1}</div>
-            <div className={styles.prices}>{pvc.polje_1}</div>
-            <div className={styles.prices}>{pvc.polje_2}</div>
-            <div className={styles.prices}>{pvc.polje_3}</div>
-            <div className={styles.prices}>{pvc.polje_4}</div>
-            <div className={styles.prices}>{pvc.polje_5}</div>
-            <div className={styles.line}></div>
-            <div className={styles.measures}>{pvc.vertikalno_zaglavlje_2}</div>
-            <div className={styles.prices}>{pvc.polje_6}</div>
-            <div className={styles.prices}>{pvc.polje_7}</div>
-            <div className={styles.prices}>{pvc.polje_8}</div>
-            <div className={styles.prices}>{pvc.polje_9}</div>
-            <div className={styles.prices}>{pvc.polje_10}</div>
-            <div className={styles.line}></div>
-            <div className={styles.measures}>{pvc.vertikalno_zaglavlje_3}</div>
-            <div className={styles.prices}>{pvc.polje_11}</div>
-            <div className={styles.prices}>{pvc.polje_12}</div>
-            <div className={styles.prices}>{pvc.polje_13}</div>
-            <div className={styles.prices}>{pvc.polje_14}</div>
-            <div className={styles.prices}>{pvc.polje_15}</div>
-            <div className={styles.line}></div>
-            <div className={styles.measures}>{pvc.vertikalno_zaglavlje_4}</div>
-            <div className={styles.prices}>{pvc.polje_16}</div>
-            <div className={styles.prices}>{pvc.polje_17}</div>
-            <div className={styles.prices}>{pvc.polje_18}</div>
-            <div className={styles.prices}>{pvc.polje_19}</div>
-            <div className={styles.prices}>{pvc.polje_20}</div>
-          </div>
-          <h5>{pvc.fusnota_tabele}</h5>
+          <h1>MIMADA PLAST CENOVNIK</h1>
+          <div></div>
+          <p className={styles.uvod}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel
+            leo odio. Maecenas dolor quam, convallis at dui ac, malesuada tempus
+            quam. Nunc ultrices, ante et bibendum ultricies, est metus dapibus
+            risus, sit amet posuere ex ipsum vitae orci. Aliquam sed eros semper
+            velit lacinia viverra. Maecenas placerat, nisi at iaculis imperdiet,
+            ante orci laoreet dui, at commodo elit lectus sed ipsum. Phasellus
+            accumsan in nisl viverra porta. Pellentesque suscipit dictum nulla,
+            at mattis ante malesuada eu. Vestibulum finibus, justo id sagittis
+            sagittis, metus augue venenatis nunc, in consectetur metus elit sed
+            turpis. Nam finibus, ex et iaculis commodo, velit diam maximus nunc,
+            a accumsan leo sapien at ligula. Mauris venenatis, tortor vel
+            maximus scelerisque, arcu tortor ullamcorper arcu, eget pharetra
+            lorem odio eget nisi. Donec vitae felis lacus. Donec dignissim
+            tincidunt erat. Cras a vehicula lorem, at vestibulum odio.
+            Suspendisse potenti. Sed finibus vulputate nulla, ac semper diam
+            vehicula in. Donec tincidunt nisl sit amet augue porta tristique.
+            Nulla facilisi. Donec ornare porttitor lacus, vel varius nisi
+            feugiat ut. Ut fermentum quam elit, et lobortis lectus ornare
+            consectetur. Donec est odio, efficitur at erat at, sagittis blandit
+            purus. Quisque vel odio diam. Suspendisse potenti. In tempor congue
+            volutpat. Integer.
+          </p>
         </div>
         <div>
-          <h1>{alu.naslov_tabele}</h1>
-          <div>
-            <div></div>
-            <div className={styles.measures}>
-              {alu.horizontalno_zaglavlje_1}
-            </div>
-            <div className={styles.measures}>
-              {alu.horizontalno_zaglavlje_2}
-            </div>
-            <div className={styles.measures}>
-              {alu.horizontalno_zaglavlje_3}
-            </div>
-            <div className={styles.measures}>
-              {alu.horizontalno_zaglavlje_4}
-            </div>
-            <div className={styles.measures}>
-              {alu.horizontalno_zaglavlje_5}
-            </div>
+          <h1>JEDNOKRILNI PROZORI</h1>
+          <div className={styles.jednokrilniProzori}>
+            <div className={styles.prices}>DIMENZIJA</div>
+            <div className={styles.prices}>CENA</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>{alu.vertikalno_zaglavlje_1}</div>
-            <div className={styles.prices}>{alu.polje_1}</div>
-            <div className={styles.prices}>{alu.polje_2}</div>
-            <div className={styles.prices}>{alu.polje_3}</div>
-            <div className={styles.prices}>{alu.polje_4}</div>
-            <div className={styles.prices}>{alu.polje_5}</div>
+            <div className={styles.prices}>100 cm x 200 cm</div>
+            <div className={styles.prices}>160€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>{alu.vertikalno_zaglavlje_2}</div>
-            <div className={styles.prices}>{alu.polje_6}</div>
-            <div className={styles.prices}>{alu.polje_7}</div>
-            <div className={styles.prices}>{alu.polje_8}</div>
-            <div className={styles.prices}>{alu.polje_9}</div>
-            <div className={styles.prices}>{alu.polje_10}</div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>{alu.vertikalno_zaglavlje_3}</div>
-            <div className={styles.prices}>{alu.polje_11}</div>
-            <div className={styles.prices}>{alu.polje_12}</div>
-            <div className={styles.prices}>{alu.polje_13}</div>
-            <div className={styles.prices}>{alu.polje_14}</div>
-            <div className={styles.prices}>{alu.polje_15}</div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>{alu.vertikalno_zaglavlje_4}</div>
-            <div className={styles.prices}>{alu.polje_16}</div>
-            <div className={styles.prices}>{alu.polje_17}</div>
-            <div className={styles.prices}>{alu.polje_18}</div>
-            <div className={styles.prices}>{alu.polje_19}</div>
-            <div className={styles.prices}>{alu.polje_20}</div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>100 x 200</div>
+            <div className={styles.prices}>160€</div>
           </div>
-          <h5>{alu.fusnota_tabele}</h5>
         </div>
         <div>
-          <h1>{ulazna.naslov_tabele}</h1>
-          <div>
-            <div></div>
-            <div className={styles.measures}>
-              {ulazna.horizontalno_zaglavlje_1}
-            </div>
-            <div className={styles.measures}>
-              {ulazna.horizontalno_zaglavlje_2}
-            </div>
-            <div className={styles.measures}>
-              {ulazna.horizontalno_zaglavlje_3}
-            </div>
-            <div className={styles.measures}>
-              {ulazna.horizontalno_zaglavlje_4}
-            </div>
-            <div className={styles.measures}>
-              {ulazna.horizontalno_zaglavlje_5}
-            </div>
+          <h1>DVOKRILNI PROZORI</h1>
+          <div className={styles.dvokrilniProzori}>
+            <div className={styles.prices}>DIMENZIJA</div>
+            <div className={styles.prices}>CENA</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {ulazna.vertikalno_zaglavlje_1}
-            </div>
-            <div className={styles.prices}>{ulazna.polje_1}</div>
-            <div className={styles.prices}>{ulazna.polje_2}</div>
-            <div className={styles.prices}>{ulazna.polje_3}</div>
-            <div className={styles.prices}>{ulazna.polje_4}</div>
-            <div className={styles.prices}>{ulazna.polje_5}</div>
+            <div className={styles.prices}>1400 cm x 800 cm</div>
+            <div className={styles.prices}>280€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {ulazna.vertikalno_zaglavlje_2}
-            </div>
-            <div className={styles.prices}>{ulazna.polje_6}</div>
-            <div className={styles.prices}>{ulazna.polje_7}</div>
-            <div className={styles.prices}>{ulazna.polje_8}</div>
-            <div className={styles.prices}>{ulazna.polje_9}</div>
-            <div className={styles.prices}>{ulazna.polje_10}</div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {ulazna.vertikalno_zaglavlje_3}
-            </div>
-            <div className={styles.prices}>{ulazna.polje_11}</div>
-            <div className={styles.prices}>{ulazna.polje_12}</div>
-            <div className={styles.prices}>{ulazna.polje_13}</div>
-            <div className={styles.prices}>{ulazna.polje_14}</div>
-            <div className={styles.prices}>{ulazna.polje_15}</div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {ulazna.vertikalno_zaglavlje_4}
-            </div>
-            <div className={styles.prices}>{ulazna.polje_16}</div>
-            <div className={styles.prices}>{ulazna.polje_17}</div>
-            <div className={styles.prices}>{ulazna.polje_18}</div>
-            <div className={styles.prices}>{ulazna.polje_19}</div>
-            <div className={styles.prices}>{ulazna.polje_20}</div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>400 x 800</div>
+            <div className={styles.prices}>280€</div>
           </div>
-          <h5>{ulazna.fusnota_tabele}</h5>
         </div>
         <div>
-          <h1>{klizni.naslov_tabele}</h1>
-          <div>
-            <div></div>
-            <div className={styles.measures}>
-              {klizni.horizontalno_zaglavlje_1}
-            </div>
-            <div className={styles.measures}>
-              {klizni.horizontalno_zaglavlje_2}
-            </div>
-            <div className={styles.measures}>
-              {klizni.horizontalno_zaglavlje_3}
-            </div>
-            <div className={styles.measures}>
-              {klizni.horizontalno_zaglavlje_4}
-            </div>
-            <div className={styles.measures}>
-              {klizni.horizontalno_zaglavlje_5}
-            </div>
+          <h1>JEDNOKRILNA BALKONSKA VRATA</h1>
+          <div className={styles.jbv}>
+            <div className={styles.prices}>DIMENZIJA</div>
+            <div className={styles.prices}>CENA</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {klizni.vertikalno_zaglavlje_1}
-            </div>
-            <div className={styles.prices}>{klizni.polje_1}</div>
-            <div className={styles.prices}>{klizni.polje_2}</div>
-            <div className={styles.prices}>{klizni.polje_3}</div>
-            <div className={styles.prices}>{klizni.polje_4}</div>
-            <div className={styles.prices}>{klizni.polje_5}</div>
+            <div className={styles.prices}>300 cm x 1200 cm</div>
+            <div className={styles.prices}>310€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {klizni.vertikalno_zaglavlje_2}
-            </div>
-            <div className={styles.prices}>{klizni.polje_6}</div>
-            <div className={styles.prices}>{klizni.polje_7}</div>
-            <div className={styles.prices}>{klizni.polje_8}</div>
-            <div className={styles.prices}>{klizni.polje_9}</div>
-            <div className={styles.prices}>{klizni.polje_10}</div>
+            <div className={styles.prices}>350 x 670</div>
+            <div className={styles.prices}>310€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {klizni.vertikalno_zaglavlje_3}
-            </div>
-            <div className={styles.prices}>{klizni.polje_11}</div>
-            <div className={styles.prices}>{klizni.polje_12}</div>
-            <div className={styles.prices}>{klizni.polje_13}</div>
-            <div className={styles.prices}>{klizni.polje_14}</div>
-            <div className={styles.prices}>{klizni.polje_15}</div>
+            <div className={styles.prices}>350 x 670</div>
+            <div className={styles.prices}>310€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {klizni.vertikalno_zaglavlje_4}
-            </div>
-            <div className={styles.prices}>{klizni.polje_16}</div>
-            <div className={styles.prices}>{klizni.polje_17}</div>
-            <div className={styles.prices}>{klizni.polje_18}</div>
-            <div className={styles.prices}>{klizni.polje_19}</div>
-            <div className={styles.prices}>{klizni.polje_20}</div>
+            <div className={styles.prices}>350 x 670</div>
+            <div className={styles.prices}>310€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>350 x 670</div>
+            <div className={styles.prices}>310€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>350 x 670</div>
+            <div className={styles.prices}>310€</div>
           </div>
-          <h5>{klizni.fusnota_tabele}</h5>
         </div>
         <div>
-          <h1>{roletne.naslov_tabele}</h1>
-          <div>
-            <div></div>
-            <div className={styles.measures}>
-              {roletne.horizontalno_zaglavlje_1}
-            </div>
-            <div className={styles.measures}>
-              {roletne.horizontalno_zaglavlje_2}
-            </div>
-            <div className={styles.measures}>
-              {roletne.horizontalno_zaglavlje_3}
-            </div>
-            <div className={styles.measures}>
-              {roletne.horizontalno_zaglavlje_4}
-            </div>
-            <div className={styles.measures}>
-              {roletne.horizontalno_zaglavlje_5}
-            </div>
+          <h1>DVOKRILNA BALKONSKA VRATA</h1>
+          <div className={styles.dbv}>
+            <div className={styles.prices}>DIMENZIJA</div>
+            <div className={styles.prices}>CENA</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {roletne.vertikalno_zaglavlje_1}
-            </div>
-            <div className={styles.prices}>{roletne.polje_1}</div>
-            <div className={styles.prices}>{roletne.polje_2}</div>
-            <div className={styles.prices}>{roletne.polje_3}</div>
-            <div className={styles.prices}>{roletne.polje_4}</div>
-            <div className={styles.prices}>{roletne.polje_5}</div>
+            <div className={styles.prices}>1800 cm x 2700 cm</div>
+            <div className={styles.prices}>390€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {roletne.vertikalno_zaglavlje_2}
-            </div>
-            <div className={styles.prices}>{roletne.polje_6}</div>
-            <div className={styles.prices}>{roletne.polje_7}</div>
-            <div className={styles.prices}>{roletne.polje_8}</div>
-            <div className={styles.prices}>{roletne.polje_9}</div>
-            <div className={styles.prices}>{roletne.polje_10}</div>
+            <div className={styles.prices}>800 x 700</div>
+            <div className={styles.prices}>390€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {roletne.vertikalno_zaglavlje_3}
-            </div>
-            <div className={styles.prices}>{roletne.polje_11}</div>
-            <div className={styles.prices}>{roletne.polje_12}</div>
-            <div className={styles.prices}>{roletne.polje_13}</div>
-            <div className={styles.prices}>{roletne.polje_14}</div>
-            <div className={styles.prices}>{roletne.polje_15}</div>
+            <div className={styles.prices}>800 x 700</div>
+            <div className={styles.prices}>390€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {roletne.vertikalno_zaglavlje_4}
-            </div>
-            <div className={styles.prices}>{roletne.polje_16}</div>
-            <div className={styles.prices}>{roletne.polje_17}</div>
-            <div className={styles.prices}>{roletne.polje_18}</div>
-            <div className={styles.prices}>{roletne.polje_19}</div>
-            <div className={styles.prices}>{roletne.polje_20}</div>
+            <div className={styles.prices}>800 x 700</div>
+            <div className={styles.prices}>390€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>800 x 700</div>
+            <div className={styles.prices}>390€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>800 x 700</div>
+            <div className={styles.prices}>390€</div>
           </div>
-          <h5>{roletne.fusnota_tabele}</h5>
         </div>
         <div>
-          <h1>{komarnici.naslov_tabele}</h1>
-          <div>
-            <div></div>
-            <div className={styles.measures}>
-              {komarnici.horizontalno_zaglavlje_1}
-            </div>
-            <div className={styles.measures}>
-              {komarnici.horizontalno_zaglavlje_2}
-            </div>
-            <div className={styles.measures}>
-              {komarnici.horizontalno_zaglavlje_3}
-            </div>
-            <div className={styles.measures}>
-              {komarnici.horizontalno_zaglavlje_4}
-            </div>
-            <div className={styles.measures}>
-              {komarnici.horizontalno_zaglavlje_5}
-            </div>
+          <h1>ROLETNE</h1>
+          <div className={styles.roletne}>
+            <div className={styles.prices}>DIMENZIJA</div>
+            <div className={styles.prices}>CENA</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {komarnici.vertikalno_zaglavlje_1}
-            </div>
-            <div className={styles.prices}>{komarnici.polje_1}</div>
-            <div className={styles.prices}>{komarnici.polje_2}</div>
-            <div className={styles.prices}>{komarnici.polje_3}</div>
-            <div className={styles.prices}>{komarnici.polje_4}</div>
-            <div className={styles.prices}>{komarnici.polje_5}</div>
+            <div className={styles.prices}>1250 cm x 2450 cm</div>
+            <div className={styles.prices}>570€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {komarnici.vertikalno_zaglavlje_2}
-            </div>
-            <div className={styles.prices}>{komarnici.polje_6}</div>
-            <div className={styles.prices}>{komarnici.polje_7}</div>
-            <div className={styles.prices}>{komarnici.polje_8}</div>
-            <div className={styles.prices}>{komarnici.polje_9}</div>
-            <div className={styles.prices}>{komarnici.polje_10}</div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {komarnici.vertikalno_zaglavlje_3}
-            </div>
-            <div className={styles.prices}>{komarnici.polje_11}</div>
-            <div className={styles.prices}>{komarnici.polje_12}</div>
-            <div className={styles.prices}>{komarnici.polje_13}</div>
-            <div className={styles.prices}>{komarnici.polje_14}</div>
-            <div className={styles.prices}>{komarnici.polje_15}</div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
             <div className={styles.line}></div>
-            <div className={styles.measures}>
-              {komarnici.vertikalno_zaglavlje_4}
-            </div>
-            <div className={styles.prices}>{komarnici.polje_16}</div>
-            <div className={styles.prices}>{komarnici.polje_17}</div>
-            <div className={styles.prices}>{komarnici.polje_18}</div>
-            <div className={styles.prices}>{komarnici.polje_19}</div>
-            <div className={styles.prices}>{komarnici.polje_20}</div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
           </div>
-          <h5>*cena izrazena u evrima</h5>
+        </div>
+
+        <div>
+          <h1>KOMARNICI</h1>
+          <div className={styles.komarnici}>
+            <div className={styles.prices}>DIMENZIJA</div>
+            <div className={styles.prices}>CENA</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1250 cm x 2450 cm</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+          </div>
+        </div>
+
+        <div>
+          <h1>ULAZNA VRATA</h1>
+          <div className={styles.ulaznaVrata}>
+            <div className={styles.prices}>DIMENZIJA</div>
+            <div className={styles.prices}>CENA</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1250 cm x 2450 cm</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+            <div className={styles.line}></div>
+            <div className={styles.prices}>1300 x 1000</div>
+            <div className={styles.prices}>570€</div>
+          </div>
         </div>
       </div>
       <Footer data={props.footer.data[0].attributes} />
