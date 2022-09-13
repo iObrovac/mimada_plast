@@ -39,6 +39,10 @@ function Map() {
   //   []
   // );
 
+  // lat: 45.29982894123239, lng: 19.829251905796745
+
+  // 45.298787, 19.826240
+
   return (
     <GoogleMap
       zoom={15}
@@ -109,7 +113,7 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
           </div>
 
           {/* <div className={styles.contactPic}> */}
-          {isLoaded ? <Map /> : <div>Loading</div>}
+          {isLoaded ? <Map /> : <div>Loading...</div>}
           {/* </div> */}
         </div>
         <div className={styles.contactInput}>

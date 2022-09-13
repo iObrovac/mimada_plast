@@ -156,6 +156,10 @@
   }
 }
 
+.gmnoprint {
+  width: 90%;
+}
+
 @media (max-width: 1250px) {
   .contactForm {
     flex-direction: column;
@@ -236,7 +240,7 @@
 
     & > div {
       h4 {
-        width: 15rem;
+        width: 18rem;
       }
     }
   }
@@ -282,6 +286,14 @@
     & > div {
       margin: 0;
       padding: 0;
+    }
+  }
+
+  .contactForm {
+    & > div {
+      h4 {
+        width: 15rem;
+      }
     }
   }
 
