@@ -5,6 +5,23 @@ export interface PropsCenovnik {
   header: InsideHeader;
   footer: InsideFooter;
   cenovnik: ICenovnik;
+  cenovnikTekst: ICenovnikTekst;
+}
+
+export interface ICenovnikTekst {
+  data: ICenovnikTekstInner;
+}
+
+export interface ICenovnikTekstInner {
+  0: ICenovnikTekstInside;
+}
+export interface ICenovnikTekstInside {
+  attributes: ICenovnikTekstSingle;
+}
+
+export interface ICenovnikTekstSingle {
+  Naslov: string;
+  Tekst: string;
 }
 
 export interface ICenovnik {
@@ -17,37 +34,39 @@ export interface ICenovnikInner {
 }
 
 export interface ICenovnikSingle {
-  naslov_tabele: string;
-  horizontalno_zaglavlje_1: string;
-  horizontalno_zaglavlje_2: string;
-  horizontalno_zaglavlje_3: string;
-  horizontalno_zaglavlje_4: string;
-  horizontalno_zaglavlje_5: string;
-  vertikalno_zaglavlje_1: string;
-  vertikalno_zaglavlje_2: string;
-  vertikalno_zaglavlje_3: string;
-  vertikalno_zaglavlje_4: string;
-  polje_1: string;
-  polje_2: string;
-  polje_3: string;
-  polje_4: string;
-  polje_5: string;
-  polje_6: string;
-  polje_7: string;
-  polje_8: string;
-  polje_9: string;
-  polje_10: string;
-  polje_11: string;
-  polje_12: string;
-  polje_13: string;
-  polje_14: string;
-  polje_15: string;
-  polje_16: string;
-  polje_17: string;
-  polje_18: string;
-  polje_19: string;
-  polje_20: string;
-  fusnota_tabele: string;
+  naslovTabele: string;
+  naslovKolona1: string;
+  naslovKolona2: string;
+  cena1: string | null;
+  cena2: string | null;
+  cena3: string | null;
+  cena4: string | null;
+  cena5: string | null;
+  cena6: string | null;
+  cena7: string | null;
+  cena8: string | null;
+  cena9: string | null;
+  cena10: string | null;
+  cena11: string | null;
+  cena12: string | null;
+  cena13: string | null;
+  cena14: string | null;
+  cena15: string | null;
+  dimenzija1: string | null;
+  dimenzija2: string | null;
+  dimenzija3: string | null;
+  dimenzija4: string | null;
+  dimenzija5: string | null;
+  dimenzija6: string | null;
+  dimenzija7: string | null;
+  dimenzija8: string | null;
+  dimenzija9: string | null;
+  dimenzija10: string | null;
+  dimenzija11: string | null;
+  dimenzija12: string | null;
+  dimenzija13: string | null;
+  dimenzija14: string | null;
+  dimenzija15: string | null;
 }
 
 export interface InsideFooter {

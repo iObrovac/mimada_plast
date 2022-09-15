@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Footer from "../components/Footer";
 import HeaderContact from "../components/HeaderContact";
 import HeaderNav from "../components/HeaderNav";
 import { IKontakt, PropsKontakt } from "../intefaces/kontakt";
 import styles from "../styles/Kontakt.module.scss";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 
 export async function getStaticProps() {
   const res = await fetch(
@@ -34,19 +35,19 @@ export async function getStaticProps() {
 }
 
 function Map() {
-  // const center = useMemo(
-  //   () => ({ lat: 45.2987955266168, lng: 19.82615197616567 }),
-  //   []
-  // );
+  //   // const center = useMemo(
+  //   //   () => ({ lat: 45.2987955266168, lng: 19.82615197616567 }),
+  //   //   []
+  //   // );
 
-  // lat: 45.29982894123239, lng: 19.829251905796745
+  //   // lat: 45.29982894123239, lng: 19.829251905796745
 
-  // 45.298787, 19.826240
+  //   // 45.298787, 19.826240
 
   return (
     <GoogleMap
       zoom={15}
-      center={{ lat: 45.29982894123239, lng: 19.829251905796745 }}
+      center={{ lat: 45.29982894123239, lng: 19.831251905796745 }}
       mapContainerClassName={styles.mapCont}
     >
       <MarkerF position={{ lat: 45.29880684676557, lng: 19.826302179878297 }} />
@@ -63,7 +64,7 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
     googleMapsApiKey: "AIzaSyBNLrJhOMz6idD05pzfn5lhA-TAw-mAZCU",
   });
 
-  // if (!isLoaded) return <div>Loading...</div>;
+  if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <div className={styles.kontaktContainer}>
@@ -112,7 +113,7 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
             <h4>{kontaktData?.email}</h4>
           </div>
 
-          {/* <div className={styles.contactPic}> */}
+          {/* <div className={styles.mapCont}> */}
           {isLoaded ? <Map /> : <div>Loading...</div>}
           {/* </div> */}
         </div>

@@ -140,7 +140,7 @@
   }
 }
 
-.contactPic {
+#map {
   width: 43rem;
   height: 28rem;
   border: 1px solid red;
@@ -154,10 +154,6 @@
   & > div {
     padding: 0;
   }
-}
-
-.gmnoprint {
-  width: 90%;
 }
 
 @media (max-width: 1250px) {
@@ -189,7 +185,7 @@
 
     & > div {
       h4 {
-        width: 20rem;
+        width: 28rem;
       }
     }
   }
