@@ -88,7 +88,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.line}></div>
             <div className={styles.prices}>{jkp.dimenzija6}</div>
             <div className={styles.prices}>{jkp.cena6}</div>
-            <div className={styles.line}></div>
+            {/* <div className={styles.line}></div>
             <div className={styles.prices}>{jkp.dimenzija7}</div>
             <div className={styles.prices}>{jkp.cena7}</div>
             <div className={styles.line}></div>
@@ -108,7 +108,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{jkp.cena12}</div>
             <div className={styles.line}></div>
             <div className={styles.prices}>{jkp.dimenzija13}</div>
-            <div className={styles.prices}>{jkp.cena13}</div>
+            <div className={styles.prices}>{jkp.cena13}</div> */}
           </div>
         </div>
         <div>
@@ -202,7 +202,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.line}></div>
             <div className={styles.prices}>{dbv.dimenzija3}</div>
             <div className={styles.prices}>{dbv.cena3}</div>
-            <div className={styles.line}></div>
+            {/* <div className={styles.line}></div>
             <div className={styles.prices}>{dbv.dimenzija4}</div>
             <div className={styles.prices}>{dbv.cena4}</div>
             <div className={styles.line}></div>
@@ -210,7 +210,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{dbv.cena5}</div>
             <div className={styles.line}></div>
             <div className={styles.prices}>{dbv.dimenzija6}</div>
-            <div className={styles.prices}>{dbv.cena6}</div>
+            <div className={styles.prices}>{dbv.cena6}</div> */}
           </div>
         </div>
         <div>

@@ -47,7 +47,7 @@ function Map() {
   return (
     <GoogleMap
       zoom={15}
-      center={{ lat: 45.29982894123239, lng: 19.831251905796745 }}
+      center={{ lat: 45.29942894123239, lng: 19.831251905796745 }}
       mapContainerClassName={styles.mapCont}
     >
       <MarkerF position={{ lat: 45.29880684676557, lng: 19.826302179878297 }} />
@@ -64,7 +64,7 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
     googleMapsApiKey: "AIzaSyBrGNte0ffPin5LtBQNBeVZQvTAbWPHWdY",
   });
 
-  if (!isLoaded) return <div>Loading...</div>;
+  // if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <div className={styles.kontaktContainer}>
