@@ -61,7 +61,7 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
   );
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBNLrJhOMz6idD05pzfn5lhA-TAw-mAZCU",
+    googleMapsApiKey: "AIzaSyDNxJnTXkXjfrkq6lZw3H-Unb0oXqbAQOw",
   });
 
   if (!isLoaded) return <div>Loading...</div>;
