@@ -82,7 +82,10 @@ const Proizvodi: NextPage<IProizvodi> = (props) => {
         {proizvodiStatic.map((proizvod, proizvodIndex) => {
           const prozivodiObjKeySufix = proizvodIndex + 1;
           return (
-            <ProizvodWrap linkPath={proizvod.routePath}>
+            <ProizvodWrap
+              linkPath={proizvod.routePath}
+              key={proizvod.routePath}
+            >
               <h3>{proizvodi[`naslov_${prozivodiObjKeySufix}`]}</h3>
               <p>{proizvodi[`text_${prozivodiObjKeySufix}`]}</p>
               <img src={proizvod.src} alt="" />
