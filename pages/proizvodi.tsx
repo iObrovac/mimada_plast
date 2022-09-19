@@ -34,10 +34,41 @@ export async function getStaticProps() {
   };
 }
 
-const Proizvodi: NextPage<IProizvodi> = (props) => {
-  const [proizvodi, setProizvodi] = useState<IProData>(
-    props.proizvodi?.data[0].attributes
+const proizvodiStatic = [
+  {
+    src: "/proizvodi1.svg",
+    routePath: "/pvcstolarija",
+  },
+  {
+    src: "/proizvodi2.svg",
+    routePath: "/proizvodi1.svg",
+  },
+  {
+    src: "/proizvodi3.svg",
+    routePath: "",
+  },
+  {
+    src: "/proizvodi4.svg",
+    routePath: "/roletne",
+  },
+];
+
+interface ProizvodWrapProps {
+  children: React.ReactNode;
+  linkPath: string;
+}
+
+const ProizvodWrap = ({ linkPath, children }: ProizvodWrapProps) =>
+  linkPath ? (
+    <Link href={linkPath}>
+      <div className={styles.proizvod1}>{children}</div>
+    </Link>
+  ) : (
+    <div className={styles.proizvod1}>{children}</div>
   );
+
+const Proizvodi: NextPage<IProizvodi> = (props) => {
+  const [proizvodi] = useState<IProData>(props.proizvodi?.data[0].attributes);
 
   return (
     <div className={styles.container}>
@@ -48,33 +79,16 @@ const Proizvodi: NextPage<IProizvodi> = (props) => {
       <h1 className={styles.title}>Proizvodi</h1>
 
       <div className={styles.proizvodi}>
-        <Link href="/pvcstolarija">
-          <div className={styles.proizvod1}>
-            <h3>{proizvodi.naslov_1}</h3>
-            <p>{proizvodi.text_1}</p>
-            <img className={styles.pro1} src="/proizvodi1.svg" alt="" />
-          </div>
-        </Link>
-
-        <div className={styles.proizvod2}>
-          <h3>{proizvodi.naslov_2}</h3>
-          <p>{proizvodi.text_2}</p>
-          <img className={styles.pro2} src="/proizvodi2.svg" alt="" />
-        </div>
-
-        <div className={styles.proizvod3}>
-          <h3>{proizvodi.naslov_3}</h3>
-          <p>{proizvodi.text_3}</p>
-          <img className={styles.pro3} src="/proizvodi3.svg" alt="" />
-        </div>
-
-        <Link href="/roletne">
-          <div className={styles.proizvod4}>
-            <h3>{proizvodi.naslov_4}</h3>
-            <p>{proizvodi.text_4}</p>
-            <img className={styles.pro4} src="/proizvodi4.svg" alt="" />
-          </div>
-        </Link>
+        {proizvodiStatic.map((proizvod, proizvodIndex) => {
+          const prozivodiObjKeySufix = proizvodIndex + 1;
+          return (
+            <ProizvodWrap linkPath={proizvod.routePath}>
+              <h3>{proizvodi[`naslov_${prozivodiObjKeySufix}`]}</h3>
+              <p>{proizvodi[`text_${prozivodiObjKeySufix}`]}</p>
+              <img src={proizvod.src} alt="" />
+            </ProizvodWrap>
+          );
+        })}
       </div>
 
       <Footer data={props.footer.data[0].attributes} />

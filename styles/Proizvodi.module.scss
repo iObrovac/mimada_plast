@@ -107,50 +107,18 @@
   }
 }
 
-.proizvod1:hover > img {
-  bottom: -18%;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(25%) saturate(6184%)
-    hue-rotate(176deg) brightness(104%) contrast(92%);
-  transition: 0.3s all ease-in;
+.proizvod1 {
+  & > img {
+    transition: 0.3s all ease-in;
+  }
+  &:hover > img {
+    bottom: -18%;
+    filter: brightness(0) saturate(100%) invert(98%) sepia(25%) saturate(6184%)
+      hue-rotate(176deg) brightness(104%) contrast(92%);
+  }
 }
 
 .proizvod1:hover > p {
-  color: #000e19;
-  transition: 0.3s all ease-in;
-}
-
-.proizvod2:hover > img {
-  bottom: -18%;
-  transition: 0.3s all ease-in;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(25%) saturate(6184%)
-    hue-rotate(176deg) brightness(104%) contrast(92%);
-}
-
-.proizvod2:hover > p {
-  color: #000e19;
-  transition: 0.3s all ease-in;
-}
-
-.proizvod3:hover > img {
-  bottom: -18%;
-  transition: 0.3s all ease-in;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(25%) saturate(6184%)
-    hue-rotate(176deg) brightness(104%) contrast(92%);
-}
-
-.proizvod3:hover > p {
-  color: #000e19;
-  transition: 0.3s all ease-in;
-}
-
-.proizvod4:hover > img {
-  bottom: -18%;
-  transition: 0.3s all ease-in;
-  filter: brightness(0) saturate(100%) invert(98%) sepia(25%) saturate(6184%)
-    hue-rotate(176deg) brightness(104%) contrast(92%);
-}
-
-.proizvod4:hover > p {
   color: #000e19;
   transition: 0.3s all ease-in;
 }

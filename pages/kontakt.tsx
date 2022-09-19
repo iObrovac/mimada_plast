@@ -47,7 +47,7 @@ function Map() {
   return (
     <GoogleMap
       zoom={15}
-      center={{ lat: 45.29942894123239, lng: 19.831251905796745 }}
+      center={{ lat: 45.29942894123239, lng: 19.826251905796745 }}
       mapContainerClassName={styles.mapCont}
     >
       <MarkerF position={{ lat: 45.29880684676557, lng: 19.826302179878297 }} />
@@ -78,35 +78,35 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
 
       <div className={styles.contactForm}>
         <div className={styles.contactInfo}>
-          <div>
+          <div className={styles.stavka1}>
             <div>
               <img src="/kontaktIme.svg" alt="Company Name Icon" />
             </div>
             <h4>{kontaktData?.Ime_firme}</h4>
           </div>
 
-          <div>
+          <div className={styles.stavka2}>
             <div>
               <img src="/kontaktAdresa.svg" alt="Address Icon" />
             </div>
             <h4>{kontaktData?.Adresa}</h4>
           </div>
 
-          <div>
+          <div className={styles.stavka3}>
             <div>
               <img src="/kontaktTelefon.svg" alt="Phone Icon" />
             </div>
             <h4>{kontaktData?.Telefon}</h4>
           </div>
 
-          <div>
+          <div className={styles.stavka4}>
             <div>
               <img src="/kontaktSat.svg" alt="Clock Icon" />
             </div>
             <h4>{kontaktData?.radno_vreme}</h4>
           </div>
 
-          <div>
+          <div className={styles.stavka5}>
             <div>
               <img src="/kontaktMail.svg" alt="Mail Icon" />
             </div>

@@ -39,13 +39,21 @@
   justify-content: space-around;
 }
 
+.stavka1,
+.stavka2,
+.stavka3,
+.stavka4,
+.stavka5 {
+  margin-bottom: 4rem;
+}
+
 .contactInfo {
-  div {
+  & > div {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
 
-    div {
+    & > div {
       margin-left: 3rem;
       margin-right: 5.3rem;
       border-right: 2px solid #d9d9d9;
@@ -57,7 +65,7 @@
     }
 
     h4 {
-      margin-bottom: 2rem;
+      // margin-bottom: 2rem;
       font-family: "Space Grotesk";
       font-style: normal;
       font-weight: 400;
@@ -80,7 +88,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
-    line-height: 51px;
+    line-height: 1;
     color: #003866;
     margin-bottom: 5.3rem;
   }
@@ -104,7 +112,8 @@
 
   textarea {
     width: 50rem;
-    height: 25rem;
+    min-height: 25rem;
+    flex-grow: 1;
     padding: 2rem;
 
     border: 1px solid rgba(0, 84, 153, 0.5);
@@ -140,19 +149,33 @@
   }
 }
 
-#map {
-  width: 43rem;
-  height: 28rem;
-  border: 1px solid red;
-}
+// #map {
+//   width: 43rem;
+//   height: 28rem;
+//   border: 1px solid red;
+// }
+
+// .mapCont {
+//   width: 44rem;
+//   height: 28rem;
+//   margin-bottom: 0;
+
+//   & > div {
+//     padding: 0;
+//   }
+// }
 
 .mapCont {
-  width: 44rem;
+  width: 100%;
   height: 28rem;
-  margin-bottom: 0;
 
   & > div {
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    & > div {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 

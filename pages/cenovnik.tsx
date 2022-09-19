@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Footer from "../components/Footer";
 import HeaderContact from "../components/HeaderContact";
 import HeaderNav from "../components/HeaderNav";
-import { PropsCenovnik } from "../intefaces/cenovnik";
+import { ICenovnikSingle, PropsCenovnik } from "../intefaces/cenovnik";
 import styles from "../styles/Cenovnik.module.scss";
 
 export async function getStaticProps() {
@@ -40,6 +40,48 @@ export async function getStaticProps() {
   };
 }
 
+interface RedTabele {
+  dimenzija: string;
+  cena: string;
+}
+
+function createTableArray(singleCenovnik: ICenovnikSingle): RedTabele[] {
+  let nizTabele: RedTabele[] = [];
+
+  const filtriraniUnosi = Object.entries(singleCenovnik).filter(
+    (niz) => (niz[0].includes("cena") || niz[0].includes("dimenzija")) && niz[1]
+  );
+  const filtriraniUnosiObj = Object.fromEntries(filtriraniUnosi);
+
+  for (let i = 0; i < filtriraniUnosi.length / 2; i++) {
+    const redTabele: RedTabele = {
+      dimenzija: filtriraniUnosiObj[`dimenzija${i + 1}`],
+      cena: filtriraniUnosiObj[`cena${i + 1}`],
+    };
+    nizTabele.push(redTabele);
+  }
+
+  return nizTabele;
+}
+
+interface TableContentProps {
+  tableEntry: RedTabele[];
+}
+
+const TableContent = ({ tableEntry }: TableContentProps) => (
+  <>
+    {tableEntry.map((tableRow, tableRowIndex) => (
+      <Fragment key={`table-row-${tableRowIndex}`}>
+        <div className={styles.prices}>{tableRow.dimenzija}</div>
+        <div className={styles.prices}>{tableRow.cena}</div>
+        {tableRowIndex < tableEntry.length - 1 && (
+          <div className={styles.line}></div>
+        )}
+      </Fragment>
+    ))}
+  </>
+);
+
 const Cenovnik: NextPage<PropsCenovnik> = (props) => {
   const jkp = props.cenovnik.data[2].attributes;
   const dkp = props.cenovnik.data[1].attributes;
@@ -49,6 +91,14 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
   const kom = props.cenovnik.data[6].attributes;
   const uv = props.cenovnik.data[0].attributes;
   const mimadaTekst = props.cenovnikTekst.data[0].attributes;
+
+  const jednokrilniProzori = createTableArray(jkp);
+  const dvokrilniProzori = createTableArray(dkp);
+  const jednokrilnaBalkonskaVrata = createTableArray(jbv);
+  const dvorilnaBalkonskaVrata = createTableArray(dbv);
+  const roletne = createTableArray(rol);
+  const komarnici = createTableArray(kom);
+  const ulaznaVrata = createTableArray(uv);
 
   return (
     <div className={styles.cenovnikContainer}>
@@ -71,44 +121,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{jkp.naslovKolona1}</div>
             <div className={styles.prices}>{jkp.naslovKolona2}</div>
             <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija1}</div>
-            <div className={styles.prices}>{jkp.cena1}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija2}</div>
-            <div className={styles.prices}>{jkp.cena2}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija3}</div>
-            <div className={styles.prices}>{jkp.cena3}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija4}</div>
-            <div className={styles.prices}>{jkp.cena4}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija5}</div>
-            <div className={styles.prices}>{jkp.cena5}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija6}</div>
-            <div className={styles.prices}>{jkp.cena6}</div>
-            {/* <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija7}</div>
-            <div className={styles.prices}>{jkp.cena7}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija8}</div>
-            <div className={styles.prices}>{jkp.cena8}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija9}</div>
-            <div className={styles.prices}>{jkp.cena9}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija10}</div>
-            <div className={styles.prices}>{jkp.cena10}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija11}</div>
-            <div className={styles.prices}>{jkp.cena11}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija12}</div>
-            <div className={styles.prices}>{jkp.cena12}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jkp.dimenzija13}</div>
-            <div className={styles.prices}>{jkp.cena13}</div> */}
+            <TableContent tableEntry={jednokrilniProzori} />
           </div>
         </div>
         <div>
@@ -117,50 +130,8 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{dkp.naslovKolona1}</div>
             <div className={styles.prices}>{dkp.naslovKolona2}</div>
             <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija1}</div>
-            <div className={styles.prices}>{dkp.cena1}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija2}</div>
-            <div className={styles.prices}>{dkp.cena2}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija3}</div>
-            <div className={styles.prices}>{dkp.cena3}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija4}</div>
-            <div className={styles.prices}>{dkp.cena4}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija5}</div>
-            <div className={styles.prices}>{dkp.cena5}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija6}</div>
-            <div className={styles.prices}>{dkp.cena6}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija7}</div>
-            <div className={styles.prices}>{dkp.cena7}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija8}</div>
-            <div className={styles.prices}>{dkp.cena8}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija9}</div>
-            <div className={styles.prices}>{dkp.cena9}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija10}</div>
-            <div className={styles.prices}>{dkp.cena10}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija11}</div>
-            <div className={styles.prices}>{dkp.cena11}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija12}</div>
-            <div className={styles.prices}>{dkp.cena12}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija13}</div>
-            <div className={styles.prices}>{dkp.cena13}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija14}</div>
-            <div className={styles.prices}>{dkp.cena14}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dkp.dimenzija15}</div>
-            <div className={styles.prices}>{dkp.cena15}</div>
+
+            <TableContent tableEntry={dvokrilniProzori} />
           </div>
         </div>
         <div>
@@ -169,23 +140,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{jbv.naslovKolona1}</div>
             <div className={styles.prices}>{jbv.naslovKolona2}</div>
             <div className={styles.line}></div>
-            <div className={styles.prices}>{jbv.dimenzija1}</div>
-            <div className={styles.prices}>{jbv.cena1}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jbv.dimenzija2}</div>
-            <div className={styles.prices}>{jbv.cena2}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jbv.dimenzija3}</div>
-            <div className={styles.prices}>{jbv.cena3}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jbv.dimenzija4}</div>
-            <div className={styles.prices}>{jbv.cena4}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jbv.dimenzija5}</div>
-            <div className={styles.prices}>{jbv.cena5}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{jbv.dimenzija6}</div>
-            <div className={styles.prices}>{jbv.cena6}</div>
+            <TableContent tableEntry={jednokrilnaBalkonskaVrata} />
           </div>
         </div>
         <div>
@@ -194,23 +149,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{dbv.naslovKolona1}</div>
             <div className={styles.prices}>{dbv.naslovKolona2}</div>
             <div className={styles.line}></div>
-            <div className={styles.prices}>{dbv.dimenzija1}</div>
-            <div className={styles.prices}>{dbv.cena1}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dbv.dimenzija2}</div>
-            <div className={styles.prices}>{dbv.cena2}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dbv.dimenzija3}</div>
-            <div className={styles.prices}>{dbv.cena3}</div>
-            {/* <div className={styles.line}></div>
-            <div className={styles.prices}>{dbv.dimenzija4}</div>
-            <div className={styles.prices}>{dbv.cena4}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dbv.dimenzija5}</div>
-            <div className={styles.prices}>{dbv.cena5}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{dbv.dimenzija6}</div>
-            <div className={styles.prices}>{dbv.cena6}</div> */}
+            <TableContent tableEntry={dvorilnaBalkonskaVrata} />
           </div>
         </div>
         <div>
@@ -219,20 +158,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{rol.naslovKolona1}</div>
             <div className={styles.prices}>{rol.naslovKolona2}</div>
             <div className={styles.line}></div>
-            <div className={styles.prices}>{rol.dimenzija1}</div>
-            <div className={styles.prices}>{rol.cena1}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{rol.dimenzija2}</div>
-            <div className={styles.prices}>{rol.cena2}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{rol.dimenzija3}</div>
-            <div className={styles.prices}>{rol.cena3}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{rol.dimenzija4}</div>
-            <div className={styles.prices}>{rol.cena4}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{rol.dimenzija5}</div>
-            <div className={styles.prices}>{rol.cena5}</div>
+            <TableContent tableEntry={roletne} />
           </div>
         </div>
 
@@ -242,17 +168,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{kom.naslovKolona1}</div>
             <div className={styles.prices}>{kom.naslovKolona2}</div>
             <div className={styles.line}></div>
-            <div className={styles.prices}>{kom.dimenzija1}</div>
-            <div className={styles.prices}>{kom.cena1}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{kom.dimenzija2}</div>
-            <div className={styles.prices}>{kom.cena2}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{kom.dimenzija3}</div>
-            <div className={styles.prices}>{kom.cena3}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{kom.dimenzija4}</div>
-            <div className={styles.prices}>{kom.cena4}</div>
+            <TableContent tableEntry={komarnici} />
           </div>
         </div>
 
@@ -262,23 +178,7 @@ const Cenovnik: NextPage<PropsCenovnik> = (props) => {
             <div className={styles.prices}>{uv.naslovKolona1}</div>
             <div className={styles.prices}>{uv.naslovKolona2}</div>
             <div className={styles.line}></div>
-            <div className={styles.prices}>{uv.dimenzija1}</div>
-            <div className={styles.prices}>{uv.cena1}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{uv.dimenzija2}</div>
-            <div className={styles.prices}>{uv.cena2}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{uv.dimenzija3}</div>
-            <div className={styles.prices}>{uv.cena3}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{uv.dimenzija4}</div>
-            <div className={styles.prices}>{uv.cena4}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{uv.dimenzija5}</div>
-            <div className={styles.prices}>{uv.cena5}</div>
-            <div className={styles.line}></div>
-            <div className={styles.prices}>{uv.dimenzija6}</div>
-            <div className={styles.prices}>{uv.cena6}</div>
+            <TableContent tableEntry={ulaznaVrata} />
           </div>
         </div>
       </div>

@@ -20,14 +20,15 @@ export interface att4 {
 }
 
 export interface IProData {
-  naslov_1: string;
-  naslov_2: string;
-  naslov_3: string;
-  naslov_4: string;
-  text_1: string;
-  text_2: string;
-  text_3: string;
-  text_4: string;
+  [key: `naslov_${number}` | `text_${number}`]: string;
+  // naslov_1: string;
+  // naslov_2: string;
+  // naslov_3: string;
+  // naslov_4: string;
+  // text_1: string;
+  // text_2: string;
+  // text_3: string;
+  // text_4: string;
 }
 
 export interface InnerHeader {
