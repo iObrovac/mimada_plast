@@ -6,7 +6,7 @@ import HeaderNav from "../components/HeaderNav";
 import { IPVCProps } from "../intefaces/pvcstolarija";
 import styles from "../styles/Pvcstolarija.module.scss";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(
     "https://enigmatic-hollows-03847.herokuapp.com/api/pvcstolarijas"
   );

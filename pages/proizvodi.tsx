@@ -7,7 +7,7 @@ import HeaderNav from "../components/HeaderNav";
 import { IProData, IProizvodi } from "../intefaces/proizvodi";
 import styles from "../styles/Proizvodi.module.scss";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(
     "https://enigmatic-hollows-03847.herokuapp.com/api/navbars"
   );

@@ -8,7 +8,7 @@ import styles from "../styles/Kontakt.module.scss";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(
     "https://enigmatic-hollows-03847.herokuapp.com/api/kontakts"
   );
