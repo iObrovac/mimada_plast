@@ -8,7 +8,7 @@ import Link from "next/link";
 import { IHomepage, Props } from "../intefaces/homepage";
 import { useState } from "react";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(
     "https://enigmatic-hollows-03847.herokuapp.com/api/homepages"
   );
