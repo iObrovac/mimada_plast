@@ -6,7 +6,7 @@ import HeaderNav from "../components/HeaderNav";
 import { ICenovnikSingle, PropsCenovnik } from "../intefaces/cenovnik";
 import styles from "../styles/Cenovnik.module.scss";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(
     "https://enigmatic-hollows-03847.herokuapp.com/api/navbars"
   );

@@ -225,11 +225,11 @@ const Home: NextPage<Props> = (props) => {
           </div>
           <div className={styles.sponsor4}>
             <img src="wurthwuth.svg" alt="Wurth Logo" />
-            <p>{homeData?.Partner3_opis}</p>
+            <p>{homeData?.Partner4_opis}</p>
           </div>
           <div className={styles.sponsor5}>
             <img src="/kommer.svg" alt="Winkhaus Logo" />
-            <p>{homeData?.Partner3_opis}</p>
+            <p>{homeData?.Partner5_opis}</p>
           </div>
         </div>
       </div>

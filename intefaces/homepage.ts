@@ -14,6 +14,8 @@ export interface IHomepage {
   Partner1_opis: string;
   Partner2_opis: string;
   Partner3_opis: string;
+  Partner4_opis: string;
+  Partner5_opis: string;
   Podnaslov: string;
   Podnaslov2: string;
   Proizvod1_naslov: string;
