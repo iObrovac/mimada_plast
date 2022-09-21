@@ -127,7 +127,7 @@ const HeaderNav: NextPage = () => {
               showSmall ? styles.prikazi : ""
             }`}
           >
-            <Link href="/pvcstolarija">
+            <Link href="/pvc-stolarija-novi-sad">
               <a>
                 <div>
                   <img src="/smallPVC.svg" alt="" />
