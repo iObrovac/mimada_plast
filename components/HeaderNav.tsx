@@ -56,7 +56,7 @@ const HeaderNav: NextPage = () => {
                 <h1>Lorem ipsum dolor sit amet</h1>
                 <div className={styles.menuInner}>
                   <div className={styles.menuInner1}>
-                    <Link href="/pvcstolarija">
+                    <Link href="/pvc-stolarija-novi-sad">
                       <a>
                         <div className={styles.menuOption}>
                           <img src="/menuStolarija.svg" alt="" />

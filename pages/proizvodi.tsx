@@ -37,7 +37,7 @@ export async function getServerSideProps() {
 const proizvodiStatic = [
   {
     src: "/proizvodi1.svg",
-    routePath: "/pvcstolarija",
+    routePath: "/pvc-stolarija-novi-sad",
   },
   {
     src: "/proizvodi2.svg",

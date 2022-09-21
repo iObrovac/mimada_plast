@@ -413,3 +413,15 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+  .section4 {
+    & > div {
+      flex-direction: column;
+
+      & > div:nth-child(1) {
+        width: 9rem;
+      }
+    }
+  }
+}
