@@ -41,11 +41,11 @@ const proizvodiStatic = [
   },
   {
     src: "/proizvodi2.svg",
-    routePath: "/proizvodi1.svg",
+    routePath: "/",
   },
   {
     src: "/proizvodi3.svg",
-    routePath: "",
+    routePath: "/",
   },
   {
     src: "/proizvodi4.svg",
