@@ -66,10 +66,10 @@ const Roletne: NextPage<IRoletneProps> = ({
               <p>{roletneData.text_1}</p>
               <p>{roletneData.text_2}</p>
             </div>
-            <div className={styles.section1__text__2}>
+            {/* <div className={styles.section1__text__2}>
               <h3>{roletneData.Podnaslov_2}</h3>
               <p>{roletneData.text_3}</p>
-            </div>
+            </div> */}
           </div>
           <div className={styles.section1__pic}>
             <img className={styles.pic1} src="/roletne_1.svg" alt="" />

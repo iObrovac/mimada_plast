@@ -84,7 +84,7 @@ const Proizvodi: NextPage<IProizvodi> = (props) => {
           return (
             <ProizvodWrap
               linkPath={proizvod.routePath}
-              key={proizvod.routePath}
+              key={prozivodiObjKeySufix}
             >
               <h3>{proizvodi[`naslov_${prozivodiObjKeySufix}`]}</h3>
               <p>{proizvodi[`text_${prozivodiObjKeySufix}`]}</p>

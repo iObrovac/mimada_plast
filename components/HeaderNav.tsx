@@ -50,8 +50,10 @@ const HeaderNav: NextPage = () => {
             <Link href="/proizvodi">
               <a>Proizvodi</a>
             </Link>
-
-            <div className={styles.menuWrap}>
+            {/* padajuci meni izbacen
+             **************************
+             */}
+            {/* <div className={styles.menuWrap}>
               <div className={styles.menu}>
                 <h1>Lorem ipsum dolor sit amet</h1>
                 <div className={styles.menuInner}>
@@ -105,7 +107,7 @@ const HeaderNav: NextPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <Link href="/proizvodi">
             <a className={styles.proizvodiSmall}>
