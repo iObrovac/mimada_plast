@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import HeaderContact from "../components/HeaderContact";
@@ -53,6 +54,16 @@ const Roletne: NextPage<IRoletneProps> = ({
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>
+          MIMADA VV PLAST | Roletne Za Prozore | Najjeftinije Roletne
+        </title>
+        <meta
+          name="description"
+          content="Nudimo širok izbor roletni koje zadovoljavaju najviše industrijske i ekološke standarde. Zaštitite se od sunca, buke, hladnoće, i neželjenih pogleda."
+        />
+        <link rel="shortcut icon" href="/favicon.svg" />
+      </Head>
       <HeaderContact data={header.data[0].attributes} />
       <HeaderNav />
 
@@ -128,72 +139,26 @@ const Roletne: NextPage<IRoletneProps> = ({
             <h2>{roletneData.Naslov_mala_tabela_1}</h2>
             <p>{roletneData.Opis_mala_tabela_1}</p>
             <div className={styles.leftTable}>
-              <div className={styles.leftTable1}>
-                {roletneData.Malatabela1_field_1}
-              </div>
-              <div className={styles.leftTable2}>
-                {roletneData.Malatabela1_field_2}
-              </div>
-              <div className={styles.leftTable3}>
-                {roletneData.Malatabela1_field_3}
-              </div>
-              <div className={styles.leftTable4}>
-                {roletneData.Malatabela1_field_4}
-              </div>
-              <div className={styles.leftTable5}>
-                {roletneData.Malatabela1_field_5}
-              </div>
-              <div className={styles.leftTable6}>
-                {roletneData.Malatabela1_field_6}
-              </div>
-              <div className={styles.leftTable7}>
-                {roletneData.Malatabela1_field_7}
-              </div>
-              <div className={styles.leftTable8}>
-                {roletneData.Malatabela1_field_8}
-              </div>
-              <div className={styles.leftTable9}>
-                {roletneData.Malatabela1_field_9}
-              </div>
-              <div className={styles.leftTable10}>
-                {roletneData.Malatabela1_field_10}
-              </div>
+              {Object.entries(roletneData)
+                .filter((item) => item[0].includes("Malatabela1"))
+                .map((item, index) => (
+                  <div key={index} className={styles[`leftTable${index + 1}`]}>
+                    {item[1]}
+                  </div>
+                ))}
             </div>
           </div>
           <div className={styles.right}>
             <h2>{roletneData.Naslov_mala_tabela_2}</h2>
             <p>{roletneData.Opis_mala_tabela_2}</p>
             <div className={styles.rightTable}>
-              <div className={styles.rightTable1}>
-                {roletneData.malatabela2_field_1}
-              </div>
-              <div className={styles.rightTable2}>
-                {roletneData.malatabela2_field_2}
-              </div>
-              <div className={styles.rightTable3}>
-                {roletneData.malatabela2_field_3}
-              </div>
-              <div className={styles.rightTable4}>
-                {roletneData.malatabela2_field_4}
-              </div>
-              <div className={styles.rightTable5}>
-                {roletneData.malatabela2_field_5}
-              </div>
-              <div className={styles.rightTable6}>
-                {roletneData.malatabela2_field_6}
-              </div>
-              <div className={styles.rightTable7}>
-                {roletneData.malatabela2_field_7}
-              </div>
-              <div className={styles.rightTable8}>
-                {roletneData.malatabela2_field_8}
-              </div>
-              <div className={styles.rightTable9}>
-                {roletneData.malatabela2_field_9}
-              </div>
-              <div className={styles.rightTable10}>
-                {roletneData.malatabela2_field_10}
-              </div>
+              {Object.entries(roletneData)
+                .filter((item) => item[0].includes("malatabela2"))
+                .map((item, index) => (
+                  <div key={index} className={styles[`rightTable${index + 1}`]}>
+                    {item[1]}
+                  </div>
+                ))}
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import { IKontakt, PropsKontakt } from "../intefaces/kontakt";
 import styles from "../styles/Kontakt.module.scss";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
+import Head from "next/head";
 
 export async function getServerSideProps() {
   const res = await fetch(
@@ -68,6 +69,16 @@ const Kontakt: NextPage<PropsKontakt> = (props) => {
 
   return (
     <div className={styles.kontaktContainer}>
+      <Head>
+        <title>
+          MIMADA VV PLAST | Proizvodnja i Ugradnja PVC Stolarije Novi Sad
+        </title>
+        <meta
+          name="description"
+          content="Kontaktirajte nas i saopštite nam vaše potrebe i planove a mi ćemo vam u ekspresnom roku dostaviti ponudu koju niko na tržištu ne može da nadmaši."
+        />
+        <link rel="shortcut icon" href="/favicon.svg" />
+      </Head>
       <HeaderContact data={props.header.data[0].attributes} />
       <HeaderNav />
       <img

@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import HeaderContact from "../components/HeaderContact";
@@ -37,6 +38,14 @@ const Pvcstolarija: NextPage<IPVCProps> = (props) => {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>MIMADA VV PLAST | PVC Prozori PVC Vrata Novi Sad</title>
+        <meta
+          name="description"
+          content="Proizvodnja i ugradnja stolarije vrhunskog kvaliteta u Novom Sadu i Srbiji. PVC Stolarija, ALU Stolarija, Ulazna vrata, Klizni Sistemi, Roletne, Komarnici."
+        />
+        <link rel="shortcut icon" href="/favicon.svg" />
+      </Head>
       <HeaderContact data={props.header.data[0].attributes} />
       <HeaderNav />
 

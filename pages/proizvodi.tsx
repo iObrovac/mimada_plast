@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import React, { useState } from "react";
 import Footer from "../components/Footer";
@@ -72,6 +73,16 @@ const Proizvodi: NextPage<IProizvodi> = (props) => {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>
+          MIMADA VV PLAST | PVC Profili Vrhunskog Kvaliteta Novi Sad
+        </title>
+        <meta
+          name="description"
+          content="U našoj ponudi pronaći ćete sve od pvc vrata, pvc prozora, alu vrata, do komarnika, roletni, i kliznih sistema proizvedenih po originalnoj nemačkoj recepturi."
+        />
+        <link rel="shortcut icon" href="/favicon.svg" />
+      </Head>
       <HeaderContact data={props.header?.data[0].attributes} />
       <HeaderNav />
 
